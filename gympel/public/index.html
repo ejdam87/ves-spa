@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Vector Script GUI</title>
 	<link rel="icon" href="https://i.kym-cdn.com/entries/icons/original/000/021/807/ig9OoyenpxqdCQyABmOQBZDI0duHk2QZZmWg2Hxd4ro.jpg" type="image/x-icon">
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
+
 <body>
+
 	<section class="header">
 		<h1>SuperCool RENDER VES</h1>
 	</section>
+
 <section id="editor">
 	
 	<form method="POST" action="/render">
 		<textarea id="ves" name="ves">VES v1.0 600 400</textarea>
 		<button id="vykresli">Vykresli!</button>
 	</form>
+
 	<div id="buttony">
 		<div id="pridaj_tvar">
 			<b><p id="Nadpis">PRIDAJ TVAR: </p></b>
@@ -43,8 +48,7 @@
 	</div>
 </section>
 
-
-<section id="obrazok">
+<section>
 	<img id="output" />
 </section>
 
@@ -55,5 +59,6 @@
 </section>
 
 <script type="text/javascript" src="script.js" ></script>
+<script>window.scrollTo(0,0);</script>
 </body>
 </html>

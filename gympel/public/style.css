@@ -36,10 +36,10 @@ textarea {
 	display: flex;
     justify-content: center;
 	margin: auto;
-	background-color: #ff9100; 
+	background-color: #ff8800; 
 	border: none;
 	color: white;
-	padding: 15px 50px;
+	padding: 15px 70px;
 	text-align: center;
 	text-decoration: none;
 	font-size: 25px;
@@ -122,6 +122,7 @@ img {
 	margin-left: auto;
 	margin-right: auto;
 	height: auto;
+	border: 1px solid black;
 }
 .footer {
 	padding: 50px;
