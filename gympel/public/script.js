@@ -30,7 +30,7 @@ function fillCircle() {
 	let y = prompt("zadaj y silonovu surandnicu stredu");
 	let color = prompt("zadaj farbu v hexa zapise");
 	const sprava = "FILL_CIRCLE " + x + " " + y + " " + r + " #" + color;
-	document.querySelector("#ves").innerText = text + sprava;
+	document.querySelector("#ves").value = text + sprava;
 	handleSubmit(e)
 }
 
@@ -43,7 +43,7 @@ function circle(e) {
 	let width = prompt("zadaj hrubku ciary")
 	let color = prompt("zadaj farbu v hexa zapise");
 	const sprava = "CIRCLE " + x + " " + y + " " + r + " " + width + " #" + color;
-	document.querySelector("#ves").innerText = text + sprava;
+	document.querySelector("#ves").value = text + sprava;
 
 }
 
@@ -57,7 +57,7 @@ function rectangle(e) {
 	let hrubka = prompt("zadaj hrubku")
 	let color = prompt("zadaj farbu v hexa zapise");
 	const sprava = "RECTANGLE " + x + " " + y + " " + height + " " + width +" " + hrubka + " #" + color;
-	document.querySelector("#ves").innerText = text + sprava;
+	document.querySelector("#ves").value = text + sprava;
 
 }
 
@@ -70,7 +70,7 @@ function fill_rectangle(e) {
 	let y = prompt("zadaj y silonovu surandnicu");
 	let color = prompt("zadaj farbu v hexa zapise");
 	const sprava = "FILL_RECTANGLE " + x + " " + y + " " + height + " " + width + " #" + color;
-	document.querySelector("#ves").innerText = text + sprava;
+	document.querySelector("#ves").value = text + sprava;
 
 } 
 
@@ -86,7 +86,7 @@ function triangle(e) {
 	let width = prompt("zadaj hrubku")
 	let color = prompt("zadaj farbu v hexa zapise");
 	const sprava = "TRIANGLE " + x1 + " " + y1 + " " + x2 + " " + y2 + " " + x3 + " " + x3  + " " + width + " #" + color;
-	document.querySelector("#ves").innerText = text + sprava;
+	document.querySelector("#ves").value = text + sprava;
 
 }
 
@@ -102,7 +102,7 @@ function fill_triangle(e) {
 	let color = prompt("zadaj farbu v hexa zapise");
 	const sprava = "FILL_TRIANGLE " + x1 + " " + y1 + " " + x2 + " " + y2 + " " + x3 + " " + y3  + " #" + color;
 	console.log(text+sprava);
-	document.querySelector("#ves").innerText = text + sprava;
+	document.querySelector("#ves").value = text + sprava;
 
 
 }
@@ -120,7 +120,7 @@ function line(e) {
 	console.log(text);
 	console.log(sprava);
 	console.log(text+sprava);
-	document.querySelector("#ves").innerText = text + sprava;
+	document.querySelector("#ves").value = text + sprava;
 
 }
 
