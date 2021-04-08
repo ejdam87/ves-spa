@@ -9,10 +9,10 @@ body > section {
 	flex-basis: 50%;
 }
 textarea {
-	width: 100%;
+	width: 50%;
 	height: 90vh;
 }
 img {
 	width: 100%;
-	height: auto;
+	height: auto%;
 }
