@@ -17,6 +17,9 @@ function handleSubmit(e) {
 		.then((image) => {
 			document.querySelector("#output").src = URL.createObjectURL(image); // Nastavíme src našeho <img> na načítaný obrázok
 		})
+	setTimeout(function(){
+		scroll("output")
+	}, 3000);
 }
 
 function fillCircle(e) {
@@ -47,6 +50,9 @@ function line(e) {
 	console.log("line");
 }
 
+function scroll(element){   
+	var ele = document.getElementById(element);   
+	window.scrollTo(ele.offsetLeft,ele.offsetTop); }
 
 document.querySelector("form").addEventListener("submit", handleSubmit); // Nastavíme formulár, aby pri submit udalosti spustil našu handleSubmit funkciu
 document.querySelector("#fill_circle").addEventListener("click", fillCircle);

@@ -2,17 +2,86 @@
 	margin: 0;
 	padding: 0;
 }
+html {
+	scroll-behavior: smooth;
+}
 body {
 	display: flex;
+	flex-direction:column;
 }
 body > section {
 	flex-basis: 50%;
+	display: block;
+}
+form {
+	text-align: center;
 }
 textarea {
-	width: 50%;
-	height: 90vh;
+	margin: 10vw;
+	margin-top: 10vh;
+	margin-bottom: 2vh;
+	width: 35vw;
+	height: 50vh;
+	padding: 10px
+}
+#vykresli {
+	display: flex;
+    justify-content: center;
+	margin: auto;
+	background-color: #ff9100; 
+	border: none;
+	color: white;
+	padding: 15px 50px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 25px;
+	border-radius: 8px;
+	vertical-align: middle;
+}
+#buttony {
+	display: block;
+	margin: 6vw;
+	margin-left: 0px;
+	margin-top: 12vh;
+}
+button {
+	margin: 10px;
+	background-color: #2cc058; /* Green */
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 16px;
+	border-radius: 30px;
+	vertical-align: middle;
+}
+#tvary {
+	display: flex;
+	flex-grow: 100;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-bottom: 50px;
+}
+#filtre {
+	display: flex;
+	flex-grow: 100;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+#filter_button {
+	margin: 20px;
+	background-color: #2c85c0;
+}
+#editor {
+	display: flex;
 }
 img {
-	width: 100%;
-	height: auto%;
+	width: 50%;
+	display: block;
+	margin-top: 100px;
+	margin-bottom: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	height: auto;
 }
