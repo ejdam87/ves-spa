@@ -1,37 +1,65 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Vector Script GUI</title>
+	<link rel="icon" href="https://i.kym-cdn.com/entries/icons/original/000/021/807/ig9OoyenpxqdCQyABmOQBZDI0duHk2QZZmWg2Hxd4ro.jpg" type="image/x-icon">
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
+
 <body>
-<section id="editor">
+
+	<section class="header">
+		<h1>SuperCool RENDER VES</h1>
+	</section>
+
+<section id="editor">	
+	<form method="POST" action="/render">
+		<textarea id="ves" name="ves">VES v1.0 600 400</textarea>
 	<form id = "VESform" method="POST" action="/render">
 		<textarea id="ves" name="ves">VES v1.0</textarea>
 		<button id="vykresli">Vykresli!</button>
 	</form>
+
 	<div id="buttony">
-		<div id="tvary">
-			<button id="fill_circle">Fill Circle</button>
-			<button id="circle">Circle</button>
-			<button id="rectangle">Rectangle</button>
-			<button id="fill_rectangle">Fill Rectangle</button>
-			<button id="triangle">Triangle</button>
-			<button id="fill_triangle">Fill Triangle</button>
-			<button id="line">Line</button>
+		<div id="pridaj_tvar">
+			<b><p id="Nadpis">PRIDAJ TVAR: </p></b>
+			<div id="tvary">
+				<button id="fill_circle">Fill Circle</button>
+				<button id="circle">Circle</button>
+				<button id="rectangle">Rectangle</button>
+				<button id="fill_rectangle">Fill Rectangle</button>
+				<button id="triangle">Triangle</button>
+				<button id="fill_triangle">Fill Triangle</button>
+				<button id="line">Line</button>
+			</div>
 		</div>
-		<div id="filtre">
-			<button id="filter_button">Filter1</button>
-			<button id="filter_button">Filter2</button>
-			<button id="filter_button">Filter3</button>
+		<div id="pridaj_filter">
+			<b><p id="Nadpis">PRIDAJ FILTER: </p></b>
+			<div id="filtre">
+				<button class="filter_button">Filter1</button>
+				<button class="filter_button">Filter2</button>
+				<button class="filter_button">Filter3</button>
+			</div>
+		</div>
+		<div id="fn_buttony">
+			<button class="fn_button" id="generate">Vygeneruj</button>
+			<button class="fn_button" id="clear">CLEAR</button>
 		</div>
 	</div>
 </section>
 
-
 <section>
 	<img id="output" />
 </section>
+
+<section class="footer">
+		<h6>Lukáš Heldák</h6>
+		<h6>Adam Džadoň</h6>
+		<h6>Jakub Vilček</h6>
+</section>
+
 <script type="text/javascript" src="script.js" ></script>
+<script>window.scrollTo(0,0);</script>
 </body>
 </html>

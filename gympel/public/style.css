@@ -13,6 +13,14 @@ body > section {
 	flex-basis: 50%;
 	display: block;
 }
+.header {
+	padding: 30px;
+	text-align: center;
+	background: #00AD9F;
+	color: white;
+	font-size: 30px;
+	font-family: Verdana;
+  }
 form {
 	text-align: center;
 }
@@ -28,10 +36,10 @@ textarea {
 	display: flex;
     justify-content: center;
 	margin: auto;
-	background-color: #ff9100; 
+	background-color: #ff8800; 
 	border: none;
 	color: white;
-	padding: 15px 50px;
+	padding: 15px 70px;
 	text-align: center;
 	text-decoration: none;
 	font-size: 25px;
@@ -46,7 +54,7 @@ textarea {
 }
 button {
 	margin: 10px;
-	background-color: #2cc058; /* Green */
+	background-color: #00AD40; /* Green */
 	border: none;
 	color: white;
 	padding: 15px 32px;
@@ -62,16 +70,46 @@ button {
 	flex-wrap: wrap;
 	justify-content: center;
 	margin-bottom: 50px;
+	padding-bottom: 20px;
+}
+#pridaj_tvar {
+	background-color: #CCCCCC;
+	border-radius: 15px;
+}
+#Nadpis {
+	padding: 20px;
+	padding-bottom: 5px;
+	font-size: 20px;
+	font-family: Verdana;
 }
 #filtre {
 	display: flex;
 	flex-grow: 100;
 	flex-wrap: wrap;
 	justify-content: center;
+	padding-bottom: 10px;
 }
-#filter_button {
+.filter_button {
 	margin: 20px;
-	background-color: #2c85c0;
+	background-color: #2CC1D6;
+}
+#pridaj_filter {
+	background-color: #CCCCCC;
+	border-radius: 15px;
+}
+.fn_button {
+	margin: auto;
+	margin-top: 50px;
+	background-color: #ff9100;
+	border-radius: 8px;
+	font-size: 22px;
+	padding: 15px 50px;
+}
+#clear {
+}
+#fn_buttony {
+	display:flex;
+	justify-content: center;
 }
 #editor {
 	display: flex;
@@ -84,4 +122,20 @@ img {
 	margin-left: auto;
 	margin-right: auto;
 	height: auto;
+	border: 1px solid black;
 }
+.footer {
+	padding: 50px;
+	text-align: center;
+	background: #222222;
+	color: white;
+	font-size: 30px;
+	font-family: Verdana;
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+  }
+  h6 {
+	  color: #CCCCCC;
+	  font-size: 15px;
+  }
