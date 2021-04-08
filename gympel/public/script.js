@@ -28,8 +28,9 @@ function fillCircle() {
 	let x = prompt("zadaj x ovu surandnicu stredu");
 	let y = prompt("zadaj y silonovu surandnicu stredu");
 	let color = prompt("zadaj farbu v hexa zapise");
-	const sprava = "FILL_CIRCLE " + x + " " + y + " " + r + color;
+	const sprava = "FILL_CIRCLE " + x + " " + y + " " + r + " " + color;
 	document.querySelector("#ves").value = text  + "\n" + sprava;
+	handleSubmit();
 }
 
 function circle(e) {
@@ -39,7 +40,7 @@ function circle(e) {
 	let y = prompt("zadaj y silonovu surandnicu stredu");
 	let width = prompt("zadaj hrubku ciary")
 	let color = prompt("zadaj farbu v hexa zapise");
-	const sprava = "CIRCLE " + x + " " + y + " " + r + " " + width + color;
+	const sprava = "CIRCLE " + x + " " + y + " " + r + " " + width + " " + color;
 	document.querySelector("#ves").value = text  + "\n" + sprava;
 
 }
@@ -52,7 +53,7 @@ function rectangle(e) {
 	let y = prompt("zadaj y silonovu surandnicu");
 	let hrubka = prompt("zadaj hrubku")
 	let color = prompt("zadaj farbu v hexa zapise");
-	const sprava = "RECTANGLE " + x + " " + y + " " + height + " " + width +" " + hrubka + color;
+	const sprava = "RECTANGLE " + x + " " + y + " " + height + " " + width +" " + hrubka + " " + color;
 	document.querySelector("#ves").value = text  + "\n" + sprava;
 
 }
@@ -64,7 +65,7 @@ function fill_rectangle(e) {
 	let x = prompt("zadaj x ovu surandnicu");
 	let y = prompt("zadaj y silonovu surandnicu");
 	let color = prompt("zadaj farbu v hexa zapise");
-	const sprava = "FILL_RECTANGLE " + x + " " + y + " " + height + " " + width + color;
+	const sprava = "FILL_RECTANGLE " + x + " " + y + " " + height + " " + width + " " + color;
 	document.querySelector("#ves").value = text  + "\n" + sprava;
 
 } 
@@ -80,7 +81,7 @@ function triangle(e) {
 	let y3 = prompt("zadaj y3");
 	let width = prompt("zadaj hrubku")
 	let color = prompt("zadaj farbu v hexa zapise");
-	const sprava = "TRIANGLE " + x1 + " " + y1 + " " + x2 + " " + y2 + " " + x3 + " " + x3  + " " + width + color;
+	const sprava = "TRIANGLE " + x1 + " " + y1 + " " + x2 + " " + y2 + " " + x3 + " " + x3  + " " + width + " " + color;
 	document.querySelector("#ves").value = text  + "\n" + sprava;
 
 }
@@ -94,7 +95,7 @@ function fill_triangle(e) {
 	let x3 = prompt("zadaj x3");
 	let y3 = prompt("zadaj y3");
 	let color = prompt("zadaj farbu v hexa zapise");
-	const sprava = "FILL_TRIANGLE " + x1 + " " + y1 + " " + x2 + " " + y2 + " " + x3 + " " + y3  + color;
+	const sprava = "FILL_TRIANGLE " + x1 + " " + y1 + " " + x2 + " " + y2 + " " + x3 + " " + y3  + " " + color;
 	document.querySelector("#ves").value = text  + "\n" + sprava;
 
 
@@ -108,7 +109,7 @@ function line(e) {
 	let x2 = prompt("zadaj druhu x ovu surandnicu");
 	let y2 = prompt("zadaj druhu y silonovu surandnicu");
 	let color = prompt("zadaj farbu v hexa zapise");
-	const sprava = "LINE " + x1 + " " + y1 + " " + x2 + " " + y2 + " " + width + color;
+	const sprava = "LINE " + x1 + " " + y1 + " " + x2 + " " + y2 + " " + width + " " + color;
 	document.querySelector("#ves").value = text  + "\n" + sprava;
 
 }
