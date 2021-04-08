@@ -14,11 +14,11 @@ class VESreader:
   def render(self, content):
 
     data = content.split("\n")
-    self.default_width = self.coord_convertion(data[0].split(" ")[2])
-    self.default_height = self.coord_convertion(data[0].split(" ")[3])
     self.width = self.coord_convertion(self.width)
-    self.height = int(self.default_height/self.default_width * self.width)
-
+    self.height = int(3/4 * self.width)
+    self.default_width = self.width
+    self.default_height = self.height
+    
     self.create_image()
     for c in data[1:]:
       self.line_count += 1
