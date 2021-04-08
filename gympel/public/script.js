@@ -24,58 +24,53 @@ function handleSubmit(e) {
 
 function fillCircle() {
 	let text = document.querySelector("#ves").value;
-	console.log("fillCircle");
 	let r = prompt("zadaj polomer");
 	let x = prompt("zadaj x ovu surandnicu stredu");
 	let y = prompt("zadaj y silonovu surandnicu stredu");
 	let color = prompt("zadaj farbu v hexa zapise");
-	const sprava = "FILL_CIRCLE " + x + " " + y + " " + r + " #" + color;
-	document.querySelector("#ves").innerText = text + sprava;
-	handleSubmit(e)
+	const sprava = "FILL_CIRCLE " + x + " " + y + " " + r + color;
+	document.querySelector("#ves").value = text  + "\n" + sprava;
 }
 
 function circle(e) {
-	let text = document.querySelector("#ves").value;
-	console.log("circle");
+	let text = document.querySelector("#ves").value + "\n";
 	let r = prompt("zadaj polomer");
 	let x = prompt("zadaj x ovu surandnicu stredu");
 	let y = prompt("zadaj y silonovu surandnicu stredu");
 	let width = prompt("zadaj hrubku ciary")
 	let color = prompt("zadaj farbu v hexa zapise");
-	const sprava = "CIRCLE " + x + " " + y + " " + r + " " + width + " #" + color;
-	document.querySelector("#ves").innerText = text + sprava;
+	const sprava = "CIRCLE " + x + " " + y + " " + r + " " + width + color;
+	document.querySelector("#ves").value = text  + "\n" + sprava;
 
 }
 
 function rectangle(e) {
-	let text = document.querySelector("#ves").value;
-	console.log("rectangle");
+	let text = document.querySelector("#ves").value + "\n";
 	let height = prompt("zadaj vysku");
 	let width = prompt("zadaj sirku");
 	let x = prompt("zadaj x ovu surandnicu");
 	let y = prompt("zadaj y silonovu surandnicu");
 	let hrubka = prompt("zadaj hrubku")
 	let color = prompt("zadaj farbu v hexa zapise");
-	const sprava = "RECTANGLE " + x + " " + y + " " + height + " " + width +" " + hrubka + " #" + color;
-	document.querySelector("#ves").innerText = text + sprava;
+	const sprava = "RECTANGLE " + x + " " + y + " " + height + " " + width +" " + hrubka + color;
+	document.querySelector("#ves").value = text  + "\n" + sprava;
 
 }
 
 function fill_rectangle(e) {
-	let text = document.querySelector("#ves").value;
-	console.log("fill_rectangle");
+	let text = document.querySelector("#ves").value + "\n";
 	let height = prompt("zadaj vysku")
 	let width = prompt("zadaj sirku");
 	let x = prompt("zadaj x ovu surandnicu");
 	let y = prompt("zadaj y silonovu surandnicu");
 	let color = prompt("zadaj farbu v hexa zapise");
-	const sprava = "FILL_RECTANGLE " + x + " " + y + " " + height + " " + width + " #" + color;
-	document.querySelector("#ves").innerText = text + sprava;
+	const sprava = "FILL_RECTANGLE " + x + " " + y + " " + height + " " + width + color;
+	document.querySelector("#ves").value = text  + "\n" + sprava;
 
 } 
 
 function triangle(e) {
-	let text = document.querySelector("#ves").value;
+	let text = document.querySelector("#ves").value + "\n";
 	console.log("triangle");
 	let x1 = prompt("zadaj x1");
 	let y1 = prompt("zadaj y1");
@@ -85,14 +80,13 @@ function triangle(e) {
 	let y3 = prompt("zadaj y3");
 	let width = prompt("zadaj hrubku")
 	let color = prompt("zadaj farbu v hexa zapise");
-	const sprava = "TRIANGLE " + x1 + " " + y1 + " " + x2 + " " + y2 + " " + x3 + " " + x3  + " " + width + " #" + color;
-	document.querySelector("#ves").innerText = text + sprava;
+	const sprava = "TRIANGLE " + x1 + " " + y1 + " " + x2 + " " + y2 + " " + x3 + " " + x3  + " " + width + color;
+	document.querySelector("#ves").value = text  + "\n" + sprava;
 
 }
 
 function fill_triangle(e) {
-	let text = document.querySelector("#ves").value;
-	console.log("fill_triangle");
+	let text = document.querySelector("#ves").value + "\n";
 	let x1 = prompt("zadaj x1");
 	let y1 = prompt("zadaj y1");
 	let x2 = prompt("zadaj x2");
@@ -100,27 +94,22 @@ function fill_triangle(e) {
 	let x3 = prompt("zadaj x3");
 	let y3 = prompt("zadaj y3");
 	let color = prompt("zadaj farbu v hexa zapise");
-	const sprava = "FILL_TRIANGLE " + x1 + " " + y1 + " " + x2 + " " + y2 + " " + x3 + " " + y3  + " #" + color;
-	console.log(text+sprava);
-	document.querySelector("#ves").innerText = text + sprava;
+	const sprava = "FILL_TRIANGLE " + x1 + " " + y1 + " " + x2 + " " + y2 + " " + x3 + " " + y3  + color;
+	document.querySelector("#ves").value = text  + "\n" + sprava;
 
 
 }
 
 function line(e) {
-	console.log("line");
-	let text = document.querySelector("#ves").value; + ""
+	let text = document.querySelector("#ves").value;  + "\n"
 	let width = prompt("zadaj hrubku");
 	let x1 = prompt("zadaj prvu x ovu surandnicu");
 	let y1 = prompt("zadaj prvu y silonovu surandnicu");
 	let x2 = prompt("zadaj druhu x ovu surandnicu");
 	let y2 = prompt("zadaj druhu y silonovu surandnicu");
 	let color = prompt("zadaj farbu v hexa zapise");
-	const sprava = "LINE " + x1 + " " + y1 + " " + x2 + " " + y2 + " " + width + " #" + color;
-	console.log(text);
-	console.log(sprava);
-	console.log(text+sprava);
-	document.querySelector("#ves").innerText = text + sprava;
+	const sprava = "LINE " + x1 + " " + y1 + " " + x2 + " " + y2 + " " + width + color;
+	document.querySelector("#ves").value = text  + "\n" + sprava;
 
 }
 
