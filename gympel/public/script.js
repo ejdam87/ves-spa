@@ -22,7 +22,8 @@ function handleSubmit(e) {
 	}, 3000);
 }
 
-function fillCircle() {
+function fillCircle(e) {
+
 	let text = document.querySelector("#ves").value;
 	let r = prompt("zadaj polomer");
 	let x = prompt("zadaj x ovu surandnicu stredu");
@@ -30,11 +31,12 @@ function fillCircle() {
 	let color = prompt("zadaj farbu v hexa zapise");
 	const sprava = "FILL_CIRCLE " + x + " " + y + " " + r + " " + color;
 	document.querySelector("#ves").value = text  + "\n" + sprava;
-	handleSubmit();
+	document.getElementById("vykresli").click();
+
 }
 
 function circle(e) {
-	let text = document.querySelector("#ves").value + "\n";
+	let text = document.querySelector("#ves").value;
 	let r = prompt("zadaj polomer");
 	let x = prompt("zadaj x ovu surandnicu stredu");
 	let y = prompt("zadaj y silonovu surandnicu stredu");
@@ -42,11 +44,12 @@ function circle(e) {
 	let color = prompt("zadaj farbu v hexa zapise");
 	const sprava = "CIRCLE " + x + " " + y + " " + r + " " + width + " " + color;
 	document.querySelector("#ves").value = text  + "\n" + sprava;
+	document.getElementById("vykresli").click();
 
 }
 
 function rectangle(e) {
-	let text = document.querySelector("#ves").value + "\n";
+	let text = document.querySelector("#ves").value;
 	let height = prompt("zadaj vysku");
 	let width = prompt("zadaj sirku");
 	let x = prompt("zadaj x ovu surandnicu");
@@ -55,11 +58,12 @@ function rectangle(e) {
 	let color = prompt("zadaj farbu v hexa zapise");
 	const sprava = "RECTANGLE " + x + " " + y + " " + height + " " + width +" " + hrubka + " " + color;
 	document.querySelector("#ves").value = text  + "\n" + sprava;
+	document.getElementById("vykresli").click();
 
 }
 
 function fill_rectangle(e) {
-	let text = document.querySelector("#ves").value + "\n";
+	let text = document.querySelector("#ves").value;
 	let height = prompt("zadaj vysku")
 	let width = prompt("zadaj sirku");
 	let x = prompt("zadaj x ovu surandnicu");
@@ -67,11 +71,12 @@ function fill_rectangle(e) {
 	let color = prompt("zadaj farbu v hexa zapise");
 	const sprava = "FILL_RECTANGLE " + x + " " + y + " " + height + " " + width + " " + color;
 	document.querySelector("#ves").value = text  + "\n" + sprava;
+	document.getElementById("vykresli").click();
 
 } 
 
 function triangle(e) {
-	let text = document.querySelector("#ves").value + "\n";
+	let text = document.querySelector("#ves").value;
 	console.log("triangle");
 	let x1 = prompt("zadaj x1");
 	let y1 = prompt("zadaj y1");
@@ -83,11 +88,12 @@ function triangle(e) {
 	let color = prompt("zadaj farbu v hexa zapise");
 	const sprava = "TRIANGLE " + x1 + " " + y1 + " " + x2 + " " + y2 + " " + x3 + " " + x3  + " " + width + " " + color;
 	document.querySelector("#ves").value = text  + "\n" + sprava;
+	document.getElementById("vykresli").click();
 
 }
 
 function fill_triangle(e) {
-	let text = document.querySelector("#ves").value + "\n";
+	let text = document.querySelector("#ves").value;
 	let x1 = prompt("zadaj x1");
 	let y1 = prompt("zadaj y1");
 	let x2 = prompt("zadaj x2");
@@ -97,12 +103,13 @@ function fill_triangle(e) {
 	let color = prompt("zadaj farbu v hexa zapise");
 	const sprava = "FILL_TRIANGLE " + x1 + " " + y1 + " " + x2 + " " + y2 + " " + x3 + " " + y3  + " " + color;
 	document.querySelector("#ves").value = text  + "\n" + sprava;
+	document.getElementById("vykresli").click();
 
 
 }
 
 function line(e) {
-	let text = document.querySelector("#ves").value;  + "\n"
+	let text = document.querySelector("#ves").value;
 	let width = prompt("zadaj hrubku");
 	let x1 = prompt("zadaj prvu x ovu surandnicu");
 	let y1 = prompt("zadaj prvu y silonovu surandnicu");
@@ -111,6 +118,7 @@ function line(e) {
 	let color = prompt("zadaj farbu v hexa zapise");
 	const sprava = "LINE " + x1 + " " + y1 + " " + x2 + " " + y2 + " " + width + " " + color;
 	document.querySelector("#ves").value = text  + "\n" + sprava;
+	document.getElementById("vykresli").click();
 
 }
 
@@ -118,7 +126,8 @@ function scroll(element){
 	var ele = document.getElementById(element);   
 	window.scrollTo(ele.offsetLeft,ele.offsetTop); }
 
-document.querySelector("form").addEventListener("submit", handleSubmit); // Nastavíme formulár, aby pri submit udalosti spustil našu handleSubmit funkciu
+
+document.querySelector("#VESform").addEventListener("submit", handleSubmit);
 document.querySelector("#fill_circle").addEventListener("click", fillCircle);
 document.querySelector("#circle").addEventListener("click", circle);
 document.querySelector("#rectangle").addEventListener("click", rectangle);
