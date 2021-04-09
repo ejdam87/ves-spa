@@ -37,48 +37,49 @@ function change_offset(shape_index){
 function fillCircle(e) {
 
 	change_offset(0);
-	current_shape = "Filled Circle";
+	document.getElementById("hint").innerHTML = "Currently using: Filled Circle";
 	TTL = 2;
 }
 
 function circle(e) {
 
 	change_offset(1);
-	current_shape = "Circle";
+	document.getElementById("hint").innerHTML = "Currently using: Circle";
 	TTL = 2;
 }
 
 function rectangle(e) {
 
 	change_offset(2);
+	document.getElementById("hint").innerHTML = "Currently using: Rectangle";
 	TTL = 2;
 }
 
 function fill_rectangle(e) {
 
 	change_offset(3);
-	current_shape = "Filled rectangle";
+	document.getElementById("hint").innerHTML = "Currently using: Filled rectangle";
 	TTL = 2;
 } 
 
 function triangle(e) {
 
 	change_offset(4);
-	current_shape = "Triangle";
+	document.getElementById("hint").innerHTML = "Currently using: Triangle";
 	TTL = 3;
 }
 
 function fill_triangle(e) {
 
 	change_offset(5);
-	current_shape = "Filled triangle";
+	document.getElementById("hint").innerHTML = "Currently using: Filled triangle";
 	TTL = 3;
 }
 
 function line(e) {
 
 	change_offset(6);
-	current_shape = "Line";
+	document.getElementById("hint").innerHTML = "Currently using: Line";
 	TTL = 2;
 }
 
