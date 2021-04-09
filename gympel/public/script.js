@@ -23,7 +23,7 @@ function handleSubmit(e) {
 }
 
 function change_offset(shape_index){
-	console.log("Idem menit clicked");
+
 	for (let i = 0; i < clicked.length; i++) {
 		if (i == shape_index) {
 			clicked[i] = 1
@@ -244,8 +244,7 @@ function clear(){
 
 }
 
-
-let clicked = [0, 0, 0, 0, 0, 0];	//offsets
+let clicked = [0, 0, 0, 0, 0, 0, 0];	//offsets
 let TTL = null;	//time-to-live
 let comm = "";	//single-line
 let points = [];	//an array of point-coords
