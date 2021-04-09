@@ -211,7 +211,7 @@ class VESreader:
     """
     Method responsible for creating new image
     """
-    self.picture = Image.new('RGB', (self.width, self.height), (0,0,0))
+    self.picture = Image.new('RGB', (self.width, self.height), (255, 255, 255))
 
 
   def hex2dec(self, hex_num: str) -> int:
