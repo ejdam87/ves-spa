@@ -129,8 +129,14 @@ class VESreader:
       elif command == "RECT":
         Ax = self.coord_convertion(line[1])
         Ay = self.coord_convertion(line[2])
-        width = int(self.coord_convertion(line[3]) * (self.width / self.default_width))
-        height = int(self.coord_convertion(line[4]) * (self.height / self.default_height))
+        Bx = self.coord_convertion(line[3])
+        By = self.coord_convertion(line[4])
+        width = abs(Ax - Bx)
+        height = abs(Ay - By)
+
+        Ax = min(Ax, Bx)
+        Ay = min(Ay, By)
+
         thickness = self.coord_convertion(line[5])
         color = self.hexColor(line[6])
 
@@ -158,8 +164,14 @@ class VESreader:
       elif command == "FILL_RECT":
         Ax = self.coord_convertion(line[1])
         Ay = self.coord_convertion(line[2])
-        width = int(self.coord_convertion(line[3]) * (self.width / self.default_width))
-        height = int(self.coord_convertion(line[4]) * (self.height / self.default_height))
+        Bx = self.coord_convertion(line[3])
+        By = self.coord_convertion(line[4])
+        width = abs(Ax - Bx)
+        height = abs(Ay - By)
+
+        Ax = min(Ax, Bx)
+        Ay = min(Ay, By)
+
         color = self.hexColor(line[5])
 
         self.filled_rectangle(self.convert_point((Ax, Ay)), width, height, color)

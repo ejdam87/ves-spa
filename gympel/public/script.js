@@ -4,7 +4,7 @@ function handleSubmit(e) {
 
 	// this reprezentuje ten formular, ktory odosielame
 	const ves = this.querySelector("textarea").value; // Načítame text z textarea
-	const width = document.querySelector("section:nth-child(3)").clientWidth; // Načítame aktuálnu šírku výstupného okna
+	const width = document.querySelector("img").offsetWidth; // Načítame aktuálnu šírku výstupného okna
 
 	const formular = new URLSearchParams(); // Vytvoríme štruktúru, ktorá bude reprezentovať formulár
 	formular.append('ves', ves); // Pridáme tam naše hodnoty
@@ -24,108 +24,206 @@ function handleSubmit(e) {
 
 function fillCircle(e) {
 
-	let text = document.querySelector("#ves").value;
-	let r = prompt("zadaj polomer");
-	let x = prompt("zadaj x ovu surandnicu stredu");
-	let y = prompt("zadaj y silonovu surandnicu stredu");
-	let color = prompt("zadaj farbu v hexa zapise");
-	const sprava = "FILL_CIRCLE " + x + " " + y + " " + r + " " + color;
-	document.querySelector("#ves").value = text  + "\n" + sprava;
-	document.getElementById("vykresli").click();
-
+	clicked[0] = 1
+	TTL = 2
 }
 
 function circle(e) {
-	let text = document.querySelector("#ves").value;
-	let r = prompt("zadaj polomer");
-	let x = prompt("zadaj x ovu surandnicu stredu");
-	let y = prompt("zadaj y silonovu surandnicu stredu");
-	let width = prompt("zadaj hrubku ciary")
-	let color = prompt("zadaj farbu v hexa zapise");
-	const sprava = "CIRCLE " + x + " " + y + " " + r + " " + width + " " + color;
-	document.querySelector("#ves").value = text  + "\n" + sprava;
-	document.getElementById("vykresli").click();
 
+	clicked[1] = 1
+	TTL = 2
 }
 
 function rectangle(e) {
-	let text = document.querySelector("#ves").value;
-	let height = prompt("zadaj vysku");
-	let width = prompt("zadaj sirku");
-	let x = prompt("zadaj x ovu surandnicu");
-	let y = prompt("zadaj y silonovu surandnicu");
-	let hrubka = prompt("zadaj hrubku")
-	let color = prompt("zadaj farbu v hexa zapise");
-	const sprava = "RECTANGLE " + x + " " + y + " " + height + " " + width +" " + hrubka + " " + color;
-	document.querySelector("#ves").value = text  + "\n" + sprava;
-	document.getElementById("vykresli").click();
 
+	clicked[2] = 1
+	TTL = 2
 }
 
 function fill_rectangle(e) {
-	let text = document.querySelector("#ves").value;
-	let height = prompt("zadaj vysku")
-	let width = prompt("zadaj sirku");
-	let x = prompt("zadaj x ovu surandnicu");
-	let y = prompt("zadaj y silonovu surandnicu");
-	let color = prompt("zadaj farbu v hexa zapise");
-	const sprava = "FILL_RECTANGLE " + x + " " + y + " " + height + " " + width + " " + color;
-	document.querySelector("#ves").value = text  + "\n" + sprava;
-	document.getElementById("vykresli").click();
 
+	clicked[3] = 1
+	TTL = 2
 } 
 
 function triangle(e) {
-	let text = document.querySelector("#ves").value;
-	console.log("triangle");
-	let x1 = prompt("zadaj x1");
-	let y1 = prompt("zadaj y1");
-	let x2 = prompt("zadaj x2");
-	let y2 = prompt("zadaj y2");
-	let x3 = prompt("zadaj x3");
-	let y3 = prompt("zadaj y3");
-	let width = prompt("zadaj hrubku")
-	let color = prompt("zadaj farbu v hexa zapise");
-	const sprava = "TRIANGLE " + x1 + " " + y1 + " " + x2 + " " + y2 + " " + x3 + " " + x3  + " " + width + " " + color;
-	document.querySelector("#ves").value = text  + "\n" + sprava;
-	document.getElementById("vykresli").click();
 
+	clicked[4] = 1
+	TTL = 3
 }
 
 function fill_triangle(e) {
-	let text = document.querySelector("#ves").value;
-	let x1 = prompt("zadaj x1");
-	let y1 = prompt("zadaj y1");
-	let x2 = prompt("zadaj x2");
-	let y2 = prompt("zadaj y2");
-	let x3 = prompt("zadaj x3");
-	let y3 = prompt("zadaj y3");
-	let color = prompt("zadaj farbu v hexa zapise");
-	const sprava = "FILL_TRIANGLE " + x1 + " " + y1 + " " + x2 + " " + y2 + " " + x3 + " " + y3  + " " + color;
-	document.querySelector("#ves").value = text  + "\n" + sprava;
-	document.getElementById("vykresli").click();
 
-
+	clicked[5] = 1
+	TTL = 3
 }
 
 function line(e) {
-	let text = document.querySelector("#ves").value;
-	let width = prompt("zadaj hrubku");
-	let x1 = prompt("zadaj prvu x ovu surandnicu");
-	let y1 = prompt("zadaj prvu y silonovu surandnicu");
-	let x2 = prompt("zadaj druhu x ovu surandnicu");
-	let y2 = prompt("zadaj druhu y silonovu surandnicu");
-	let color = prompt("zadaj farbu v hexa zapise");
-	const sprava = "LINE " + x1 + " " + y1 + " " + x2 + " " + y2 + " " + width + " " + color;
-	document.querySelector("#ves").value = text  + "\n" + sprava;
-	document.getElementById("vykresli").click();
+
+	clicked[6] = 1
+	TTL = 2
+}
+
+
+function calculate_radius(points) {
+	A = points[0];
+	B = points[1];
+
+	x = Math.abs(A[0] - B[0])
+	y = Math.abs(A[1] - B[1])
+
+	r = (x**2 + y**2)**(1/2)
+
+	return Math.round(r)
+}
+
+function operate(e) {
+    let x = event.pageX - this.offsetLeft;
+    let y = event.pageY - this.offsetTop;
+    points.push([x,y]);
+    let text = document.querySelector("#ves").value;
+
+	if (clicked[0] == 1) {	//Filled circle
+
+		if (TTL == 2) {
+			comm = comm + x + " " + y + " ";
+
+		}
+
+		TTL = TTL - 1
+
+		if (TTL == 0) {
+			
+			clicked[0] = 0;
+			let r = calculate_radius(points);
+			console.log(r)
+			let color = prompt("zadaj farbu v hexa zapise");
+			const sprava = "FILL_CIRCLE " + comm + r + " " + color;
+			document.querySelector("#ves").value = text  + "\n" + sprava;
+			document.getElementById("vykresli").click();
+			comm = "";
+			points = [];
+		}
+	}
+
+	if (clicked[1] == 1) {	// Circle
+
+		if (TTL == 2) {
+			comm = comm + x + " " + y + " ";
+
+		}
+
+		TTL = TTL - 1
+
+		if (TTL == 0) {
+			
+			clicked[1] = 0;
+			let r = calculate_radius(points);
+			let width = prompt("zadaj hrubku ciary");
+			let color = prompt("zadaj farbu v hexa zapise");
+			const sprava = "CIRCLE " + comm + r + " " + width + " " + color;
+			document.querySelector("#ves").value = text  + "\n" + sprava;
+			document.getElementById("vykresli").click();
+			comm = "";
+			points = [];
+		}
+	}
+
+	if (clicked[2] == 1) {	// Rectangle
+
+		comm = comm + x + " " + y + " ";
+		TTL = TTL - 1
+
+		if (TTL == 0) {
+			
+			clicked[2] = 0;
+			let width = prompt("zadaj hrubku ciary");
+			let color = prompt("zadaj farbu v hexa zapise");
+			const sprava = "RECT " + comm + width + " " + color;
+			document.querySelector("#ves").value = text  + "\n" + sprava;
+			document.getElementById("vykresli").click();
+			comm = "";
+		}
+	}
+
+	if (clicked[3] == 1) {	// Filled Rectangle
+
+		comm = comm + x + " " + y + " ";
+		TTL = TTL - 1
+
+		if (TTL == 0) {
+			
+			clicked[3] = 0;
+			let color = prompt("zadaj farbu v hexa zapise");
+			const sprava = "FILL_RECT " + comm + color;
+			document.querySelector("#ves").value = text  + "\n" + sprava;
+			document.getElementById("vykresli").click();
+			comm = "";
+		}
+	}
+
+	if (clicked[4] == 1) {	// Triangle
+
+		comm = comm + x + " " + y + " ";
+		TTL = TTL - 1
+
+		if (TTL == 0) {
+			
+			clicked[4] = 0;
+			let width = prompt("zadaj hrubku ciary");
+			let color = prompt("zadaj farbu v hexa zapise");
+			const sprava = "TRIANGLE " + comm + width + " " + color;
+			document.querySelector("#ves").value = text  + "\n" + sprava;
+			document.getElementById("vykresli").click();
+			comm = "";
+		}
+	}
+
+	if (clicked[5] == 1) {	// Filled Triangle
+
+		comm = comm + x + " " + y + " ";
+		TTL = TTL - 1
+
+		if (TTL == 0) {
+			
+			clicked[5] = 0;
+			let color = prompt("zadaj farbu v hexa zapise");
+			const sprava = "FILL_TRIANGLE " + comm + color;
+			document.querySelector("#ves").value = text  + "\n" + sprava;
+			document.getElementById("vykresli").click();
+			comm = "";
+		}
+	}
+
+	if (clicked[6] == 1) {	// Line
+
+		comm = comm + x + " " + y + " ";
+		TTL = TTL - 1
+
+		if (TTL == 0) {
+			
+			clicked[6] = 0;
+			let width = prompt("zadaj hrubku ciary");
+			let color = prompt("zadaj farbu v hexa zapise");			
+			const sprava = "LINE " + comm + width + " " + color;
+			document.querySelector("#ves").value = text  + "\n" + sprava;
+			document.getElementById("vykresli").click();
+			comm = "";
+		}
+	}
 
 }
 
-function scroll(element){   
+function scroll(element){
 	var ele = document.getElementById(element);   
-	window.scrollTo(ele.offsetLeft,ele.offsetTop); }
+	window.scrollTo(ele.offsetLeft,ele.offsetTop); 
+}
 
+
+let clicked = [0, 0, 0, 0, 0, 0];	//offsets
+let TTL = null;	//time-to-live
+let comm = "";	//single-line
+let points = [];	//an array of point-coords
 
 document.querySelector("#VESform").addEventListener("submit", handleSubmit);
 document.querySelector("#fill_circle").addEventListener("click", fillCircle);
@@ -135,3 +233,4 @@ document.querySelector("#fill_rectangle").addEventListener("click", fill_rectang
 document.querySelector("#triangle").addEventListener("click", triangle);
 document.querySelector("#fill_triangle").addEventListener("click", fill_triangle);
 document.querySelector("#line").addEventListener("click", line);
+document.querySelector("#output").addEventListener("click", operate);
