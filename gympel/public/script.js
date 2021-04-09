@@ -237,6 +237,13 @@ function scroll(element){
 	window.scrollTo(ele.offsetLeft,ele.offsetTop); 
 }
 
+function clear(){
+	let color = prompt("zadaj farbu v hexa zapise");
+	document.querySelector("#ves").value = "ves v1.0" + "\n" + "CLEAR " + color;
+	document.getElementById("vykresli").click();
+
+}
+
 
 let clicked = [0, 0, 0, 0, 0, 0];	//offsets
 let TTL = null;	//time-to-live
@@ -253,3 +260,4 @@ document.querySelector("#triangle").addEventListener("click", triangle);
 document.querySelector("#fill_triangle").addEventListener("click", fill_triangle);
 document.querySelector("#line").addEventListener("click", line);
 document.querySelector("#output").addEventListener("click", operate);
+document.querySelector("#clear").addEventListener("click", clear);
