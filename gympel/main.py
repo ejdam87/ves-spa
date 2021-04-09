@@ -1,5 +1,5 @@
 from io import BytesIO
-from flask import Flask, send_file, request, send_from_directory
+from flask import Flask, send_file, request, send_from_directory, redirect, render_template
 from ves import VESreader
 app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
@@ -27,7 +27,6 @@ def index(path):
   """
   if (len(path) == 0): # ak nezadany ziaden subor, teda cesta / chceme index.html
     return send_from_directory('public', 'index.html')
-
   return send_from_directory('public', path)
 
 
@@ -43,5 +42,6 @@ def render():
   # img = render_ves(ves, width) # tu posleme VES riadky do funkcie render_ves z projektu z prvého polroka
   render = VESreader(width, ves)
   return serve_pil_image(render.picture) # vratime vyrenderovany obrazok ako jpg
+
 
 app.run()
