@@ -264,8 +264,10 @@ function clear(){
 
 }
 
-
-
+function download_image(linkElement){
+	let source = document.getElementById("output").src;
+	linkElement.href = source
+}
 
 let clicked = [0, 0, 0, 0, 0, 0, 0];	//offsets
 let TTL = null;	//time-to-live
