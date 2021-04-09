@@ -241,22 +241,17 @@ function clear(){
 	let color = prompt("zadaj farbu v hexa zapise");
 	document.querySelector("#ves").value = "ves v1.0" + "\n" + "CLEAR " + color;
 	document.getElementById("vykresli").click();
-
-}
-
-
-function clear(){
-	let color = prompt("zadaj farbu v hexa zapise");
 	document.querySelector("#ves").value = "ves v1.0" + "\n" + "CLEAR " + color;
-	document.getElementById("vykresli").click();
 
 }
+
 
 let clicked = [0, 0, 0, 0, 0, 0];	//offsets
 let TTL = null;	//time-to-live
 let comm = "";	//single-line
 let points = [];	//an array of point-coords
 let current_shape = null;
+
 
 document.querySelector("#VESform").addEventListener("submit", handleSubmit);
 document.querySelector("#fill_circle").addEventListener("click", fillCircle);
@@ -268,3 +263,4 @@ document.querySelector("#fill_triangle").addEventListener("click", fill_triangle
 document.querySelector("#line").addEventListener("click", line);
 document.querySelector("#output").addEventListener("click", operate);
 document.querySelector("#clear").addEventListener("click", clear);
+window.onload = document.getElementById("vykresli").click();
