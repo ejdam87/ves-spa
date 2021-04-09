@@ -17,9 +17,9 @@ function handleSubmit(e) {
 		.then((image) => {
 			document.querySelector("#output").src = URL.createObjectURL(image); // Nastavíme src našeho <img> na načítaný obrázok
 		})
-	setTimeout(function(){
+	/*setTimeout(function(){
 		scroll("output")
-	}, 3000);
+	}, 3000);*/
 }
 
 function fillCircle(e) {
