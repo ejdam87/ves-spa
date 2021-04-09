@@ -73,7 +73,7 @@ textarea {
 	margin: 6vw;
 	margin-left: 2vw;
 	margin-right: 2vw;
-	margin-top: 12vh;
+	margin-top: 8vh;
 	position: absolute;
 	right: 0px;
 }
@@ -97,6 +97,22 @@ button {
 	justify-content: center;
 	margin-bottom: 0px;
 	padding-bottom: 20px;
+
+}
+#colorpicker{
+	margin: 10px;
+	width: 120px;
+	height: 32px;
+	border: none;
+
+}
+#range{
+	margin: 10px;
+	width: 120px;
+	height: 5px;
+	border: none;
+
+
 }
 #pridaj_tvar {
 	background:
