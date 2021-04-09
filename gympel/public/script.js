@@ -251,7 +251,7 @@ let points = [];	//an array of point-coords
 let current_shape = null;
 
 
-window.onload = document.getElementById("vykresli").click();	// init picture
+
 document.querySelector("#VESform").addEventListener("submit", handleSubmit);
 document.querySelector("#fill_circle").addEventListener("click", fillCircle);
 document.querySelector("#circle").addEventListener("click", circle);
@@ -262,3 +262,4 @@ document.querySelector("#fill_triangle").addEventListener("click", fill_triangle
 document.querySelector("#line").addEventListener("click", line);
 document.querySelector("#output").addEventListener("click", operate);
 document.querySelector("#clear").addEventListener("click", clear);
+window.onload = document.getElementById("vykresli").click();	// init picture
