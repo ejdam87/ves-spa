@@ -5,6 +5,10 @@
 	<title>Vector Script GUI</title>
 	<link rel="icon" href="https://i.kym-cdn.com/entries/icons/original/000/021/807/ig9OoyenpxqdCQyABmOQBZDI0duHk2QZZmWg2Hxd4ro.jpg" type="image/x-icon">
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://kit.fontawesome.com/8aae83dca8.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	
 </head>
 
 <body>
@@ -15,42 +19,45 @@
 
 <section id="editor">	
 	<form id = "VESform" method="POST" action="/render">
-		<textarea id="ves" name="ves">VES v1.0</textarea>
-		<button id="vykresli">Vykresli!</button>
+		<textarea id="ves" name="ves">VES v1.0 600 400</textarea>
+		<button class="button" id="vykresli"><span><i class="fas fa-pencil-alt"></i> Draw!</span></button>
 	</form>
+
+	<div>
+		<img id="output" />
+	</div>
 
 	<div id="buttony">
 		<div id="pridaj_tvar">
-			<b><p id="Nadpis">PRIDAJ TVAR: </p></b>
+			<p id="Nadpis">ADD<br>SHAPE: </p>
 			<div id="tvary">
-				<button id="fill_circle">Fill Circle</button>
-				<button id="circle">Circle</button>
-				<button id="rectangle">Rectangle</button>
-				<button id="fill_rectangle">Fill Rectangle</button>
-				<button id="triangle">Triangle</button>
-				<button id="fill_triangle">Fill Triangle</button>
-				<button id="line">Line</button>
+				<button class="animate" id="line" title="Line"><i class="fas fa-slash"></i></button>
+				<button class="animate" id="fill_circle" title="Filled Circle"><i class="fas fa-circle"></i></button>
+				<button class="animate" id="circle" title="Circle"><i class="far fa-circle"></i></button>
+				<button class="animate" id="fill_rectangle" title="Filled Rectangle"><i class="fas fa-square"></i></button>
+				<button class="animate" id="rectangle" title="Rectangle"><i class="far fa-square"></i></button>
+				<button class="animate" id="fill_triangle" title="Filled Triangle">▲</button>
+				<button class="animate" id="triangle" title="Triangle">△</button>
+				
 			</div>
 		</div>
-		<div id="pridaj_filter">
+		
+		<div id="fn_buttony">
+			<button class="fn_button" id="generate">Vygeneruj</button>
+			<button class="fn_button" id="clear">CLEAR</button>
+		</div>
+	</div>
+		<!--<div id="pridaj_filter">
 			<b><p id="Nadpis">PRIDAJ FILTER: </p></b>
 			<div id="filtre">
 				<button class="filter_button">Filter1</button>
 				<button class="filter_button">Filter2</button>
 				<button class="filter_button">Filter3</button>
 			</div>
-		</div>
-		<div id="fn_buttony">
-			<button class="fn_button" id="generate">Vygeneruj</button>
-			<button class="fn_button" id="clear">CLEAR</button>
-		</div>
-	</div>
-</section>
-
-<section>
-	<img id="output" />
-</section>
-
+		</div>-->
+	</section>
+		
+	
 <section class="footer">
 		<h6>Lukáš Heldák</h6>
 		<h6>Adam Džadoň</h6>
