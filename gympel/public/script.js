@@ -264,7 +264,6 @@ function clear(){
 
 }
 
-<<<<<<< HEAD
 
 function undo(){
 	let text = document.querySelector("#ves").value
@@ -295,12 +294,10 @@ function undo(){
 
 	
 
-=======
 function download_image(linkElement){
 	let source = document.getElementById("output").src;
 	linkElement.href = source
 }
->>>>>>> 234b7497c214a4a3655d4496310ee452e78df211
 
 let clicked = [0, 0, 0, 0, 0, 0, 0];	//offsets
 let TTL = null;	//time-to-live
