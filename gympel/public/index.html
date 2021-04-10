@@ -13,9 +13,9 @@
 
 <body>
 
-	<section class="header">
+	<header>
 		<h1>SuperCool RENDER VES</h1>
-	</section>
+	</header>
 
 <section id="editor">	
 	<form id = "VESform" method="POST" action="/render">
@@ -25,51 +25,85 @@
 
 	<div>
 		<img id="output" />
+		<h2 id="hint"><em>Currently using:</em> <b>Nothing</b></h2>
 	</div>
 
 	<div id="buttony">
 		<div id="pridaj_tvar">
-			<p id="Nadpis">ADD<br>SHAPE: </p>
+			<p id="Nadpis">ADD<br>SHAPE:</p>
 			<div id="tvary">
-				<button class="animate" id="line" title="Line"><i class="fas fa-slash"></i></button>
-				<button class="animate" id="fill_circle" title="Filled Circle"><i class="fas fa-circle"></i></button>
-				<button class="animate" id="circle" title="Circle"><i class="far fa-circle"></i></button>
-				<button class="animate" id="fill_rectangle" title="Filled Rectangle"><i class="fas fa-square"></i></button>
-				<button class="animate" id="rectangle" title="Rectangle"><i class="far fa-square"></i></button>
-				<button class="animate" id="fill_triangle" title="Filled Triangle">▲</button>
-				<button class="animate" id="triangle" title="Triangle">△</button>
-				<p id="Nadpis">ADD<br>COLOR: </p>
-				<input type="color" id="colorpicker" name="Pick your color" value="#0000FF">
-				<div class="hidden" id="hidden">
-					<p id="Nadpis">ADD<br>WIDTH: </p>
-					<input  type="range" id="range" name="range" min="1" max = "30">
-				</div>
+				<table>
+					<tr>
+						<td><button class="animate" id="rectangle" title="Rectangle"><i class="far fa-square"></i></button></td>
+						<td><button class="animate" id="fill_rectangle" title="Filled Rectangle"><i class="fas fa-square"></i></button></td>
+					</tr>
+					<tr>
+						<td><button class="animate" id="circle" title="Circle"><i class="far fa-circle"></i></button></td>
+						<td><button class="animate" id="fill_circle" title="Filled Circle"><i class="fas fa-circle"></i></button></td>
+					</tr>
+					<tr>
+						<td><button class="animate" id="triangle" title="Triangle">△</button></td>
+						<td><button class="animate" id="fill_triangle" title="Filled Triangle">▲</button></td>
+					</tr>
+					<tr>
+						<td><button class="animate" id="line" title="Line"><i class="fas fa-slash"></i></button></td>
+						<td><button class="animate" id="undo" title="Undo"><i class="fas fa-undo"></i></button></td>
+					</tr>
+					<tr id="choosers">
+						<td id="picker">
+							<p id="Nadpis">COLOR:</p>
+							<input type="color" id="colorpicker" name="Pick your color" value="#0000FF">
+						</td>
+						<td id="slider">
+							<div class="hidden" id="hidden">
+								<p id="Nadpis">WIDTH:</p>
+								<input  type="range" id="range" name="range" min="1" max = "30">
+							</div>
+						</td>
+					</tr>
+				</table>
 			</div>
 		</div>
-		
+
+		<div id="pridaj_tvar">
+			<b><p id="Nadpis">ADD<br>FILTER: </p></b>
+			<div id="filtre">
+				<table>
+					<tr>
+						<td><button class="animate" id="bw_filter" title="Black & White"><i class="fas fa-adjust"></i></button></td>
+						<td><button class="animate" id="neg_filter" title="Negative"><i class="fas fa-minus-square"></i></button></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	
 		<div id="fn_buttony">
-			<button class="fn_button" id="generate">Vygeneruj</button>
-			<button class="fn_button" id="clear">CLEAR</button>
-			<a href = "#" onclick = "download_image(this)" class="fn_button" id="download" download = "image.png">DOWNLOAD</a>
+				<button class="fn_button" id="generate"><i class="fas fa-shapes"></i>  Generate!</button>
+				<button class="fn_button" id="clear"><i class="fas fa-trash-alt"></i>  Clear!</button>
 		</div>
 	</div>
-		<!--<div id="pridaj_filter">
-			<b><p id="Nadpis">PRIDAJ FILTER: </p></b>
-			<div id="filtre">
-				<button class="filter_button">Filter1</button>
-				<button class="filter_button">Filter2</button>
-				<button class="filter_button">Filter3</button>
-			</div>
-		</div>-->
+		
 	</section>
 		
-	<h2 id="hint">Currenty using: Nothing</h2>
+	<div class="button" id="download">
+		<a href = "#" onclick = "download_image(this)" class="fn_button" id="download" download = "image.png"><span><i class="fas fa-download"></i> DOWNLOAD</span></a>
+	</div>
 	
-<section class="footer">
+	
+<footer class="footer">
+	<div class="autor">
 		<h6>Lukáš Heldák</h6>
+		<a class="github" href="https://github.com/LeLukasH" target="_blank"><i class="fab fa-github"></i> LeLukasH</a>
+	</div>
+	<div>
 		<h6>Adam Džadoň</h6>
+		<a class="github" href="https://github.com/adamosoft" target="_blank"><i class="fab fa-github"></i> adamosoft</a>
+	</div>
+	<div>
 		<h6>Jakub Vilček</h6>
-</section>
+		<a class="github" href="https://github.com/wilkyway69" target="_blank"><i class="fab fa-github"></i> wilkyway69</a>
+	</div>
+</footer>
 
 <script type="text/javascript" src="script.js" ></script>
 <script>window.scrollTo(0,0);</script>
