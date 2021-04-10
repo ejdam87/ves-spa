@@ -255,11 +255,25 @@ function scroll(element){
 	window.scrollTo(ele.offsetLeft,ele.offsetTop); 
 }
 
-function clear(){
+function clear() {
 	let color = document.querySelector("#colorpicker").value;
 	document.querySelector("#ves").value = "ves v1.0" + "\n" + "CLEAR " + color;
 	document.getElementById("vykresli").click();
 
+}
+
+function grayscale() {
+	let text = document.querySelector("#ves").value;
+	const sprava = "GRAYSCALE";
+	document.querySelector("#ves").value = text  + "\n" + sprava;
+	document.getElementById("vykresli").click();
+}
+
+function negative() {
+	let text = document.querySelector("#ves").value;
+	const sprava = "NEGATIVE";
+	document.querySelector("#ves").value = text  + "\n" + sprava;
+	document.getElementById("vykresli").click();
 }
 
 function undo(){
@@ -314,6 +328,9 @@ document.querySelector("#fill_triangle").addEventListener("click", fill_triangle
 document.querySelector("#line").addEventListener("click", line);
 document.querySelector("#output").addEventListener("click", operate);
 document.querySelector("#clear").addEventListener("click", clear);
+document.querySelector("#bw_filter").addEventListener("click", grayscale);
+document.querySelector("#neg_filter").addEventListener("click", negative);
 document.getElementById("undo").addEventListener("click", undo);
+
 window.onload = document.getElementById("vykresli").click();	// init picture
 window.onload = document.getElementById("hidden").style.opacity = "0.2" // hide range on default
