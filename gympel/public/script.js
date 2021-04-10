@@ -37,7 +37,7 @@ function change_offset(shape_index){
 function fillCircle(e) {
 
 	change_offset(0);
-	document.getElementById("hint").innerHTML = "Currently using: Filled Circle";
+	document.getElementById("hint").innerHTML = "<em>Currently using:</em> <b>Filled Circle</b>";
 	remove_hidden()
 	TTL = 2;
 }
@@ -45,7 +45,7 @@ function fillCircle(e) {
 function circle(e) {
 
 	change_offset(1);
-	document.getElementById("hint").innerHTML = "Currently using: Circle";
+	document.getElementById("hint").innerHTML = "<em>Currently using:</em> <b>Filled Circle</b>";
 	show_hidden()
 	TTL = 2;
 }
@@ -53,7 +53,7 @@ function circle(e) {
 function rectangle(e) {
 
 	change_offset(2);
-	document.getElementById("hint").innerHTML = "Currently using: Rectangle";
+	document.getElementById("hint").innerHTML = "<em>Currently using:</em> <b>Rectangle</b>";
 	show_hidden()
 	TTL = 2;
 }
@@ -61,7 +61,7 @@ function rectangle(e) {
 function fill_rectangle(e) {
 
 	change_offset(3);
-	document.getElementById("hint").innerHTML = "Currently using: Filled rectangle";
+	document.getElementById("hint").innerHTML = "<em>Currently using:</em> <b>Filled Rectangle</b>";
 	remove_hidden()
 	TTL = 2;
 } 
@@ -69,7 +69,7 @@ function fill_rectangle(e) {
 function triangle(e) {
 
 	change_offset(4);
-	document.getElementById("hint").innerHTML = "Currently using: Triangle";
+	document.getElementById("hint").innerHTML = "<em>Currently using:</em> <b>Triangle</b>";
 	show_hidden()
 	TTL = 3;
 }
@@ -77,7 +77,7 @@ function triangle(e) {
 function fill_triangle(e) {
 
 	change_offset(5);
-	document.getElementById("hint").innerHTML = "Currently using: Filled triangle";
+	document.getElementById("hint").innerHTML = "<em>Currently using:</em> <b>Filled triangle</b>";
 	remove_hidden()
 	TTL = 3;
 }
@@ -85,7 +85,8 @@ function fill_triangle(e) {
 function line(e) {
 
 	change_offset(6);
-	document.getElementById("hint").innerHTML = "Currently using: Line";
+	document.getElementById("hint").innerHTML = "<em>Currently using:</em> <b>Line</b>";
+
 	show_hidden()
 	TTL = 2;
 }
