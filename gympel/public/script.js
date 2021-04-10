@@ -38,7 +38,7 @@ function fillCircle(e) {
 
 	change_offset(0);
 	document.getElementById("hint").innerHTML = "Currently using: Filled Circle";
-	document.getElementById("hidden").style.display = "none"
+	document.getElementById("hidden").style.opacity = "0.2"
 	TTL = 2;
 }
 
@@ -46,7 +46,7 @@ function circle(e) {
 
 	change_offset(1);
 	document.getElementById("hint").innerHTML = "Currently using: Circle";
-	document.getElementById("hidden").style.display = "block"
+	document.getElementById("hidden").style.opacity = "1"
 	TTL = 2;
 }
 
@@ -54,7 +54,7 @@ function rectangle(e) {
 
 	change_offset(2);
 	document.getElementById("hint").innerHTML = "Currently using: Rectangle";
-	document.getElementById("hidden").style.display = "block"
+	document.getElementById("hidden").style.opacity = "1"
 	TTL = 2;
 }
 
@@ -62,7 +62,7 @@ function fill_rectangle(e) {
 
 	change_offset(3);
 	document.getElementById("hint").innerHTML = "Currently using: Filled rectangle";
-	document.getElementById("hidden").style.display = "none"
+	document.getElementById("hidden").style.opacity = "0.2"
 	TTL = 2;
 } 
 
@@ -70,7 +70,7 @@ function triangle(e) {
 
 	change_offset(4);
 	document.getElementById("hint").innerHTML = "Currently using: Triangle";
-	document.getElementById("hidden").style.display = "block"
+	document.getElementById("hidden").style.opacity = "1"
 	TTL = 3;
 }
 
@@ -78,7 +78,7 @@ function fill_triangle(e) {
 
 	change_offset(5);
 	document.getElementById("hint").innerHTML = "Currently using: Filled triangle";
-	document.getElementById("hidden").style.display = "none"
+	document.getElementById("hidden").style.opacity = "0.2"
 	TTL = 3;
 }
 
@@ -86,7 +86,7 @@ function line(e) {
 
 	change_offset(6);
 	document.getElementById("hint").innerHTML = "Currently using: Line";
-	document.getElementById("hidden").style.display = "block"
+	document.getElementById("hidden").style.opacity = "1"
 	TTL = 2;
 }
 
@@ -264,10 +264,43 @@ function clear(){
 
 }
 
+<<<<<<< HEAD
+
+function undo(){
+	let text = document.querySelector("#ves").value
+	let commands = text.split("\n")
+	let len = commands.length-2
+	console.log(len)
+
+	let result = ""
+	let i = 0
+
+
+	while (commands.includes("")){
+		commands.pop()
+		len = commands.length-2
+	}
+
+	while (i < len){
+		console.log(commands)
+		result += commands[i] + '\n'
+		i++
+	}
+	result += commands[i]
+	console.log(commands)
+	document.querySelector("#ves").value =  result
+	console.log(result)
+	document.getElementById("vykresli").click();
+}
+
+	
+
+=======
 function download_image(linkElement){
 	let source = document.getElementById("output").src;
 	linkElement.href = source
 }
+>>>>>>> 234b7497c214a4a3655d4496310ee452e78df211
 
 let clicked = [0, 0, 0, 0, 0, 0, 0];	//offsets
 let TTL = null;	//time-to-live
@@ -287,5 +320,6 @@ document.querySelector("#fill_triangle").addEventListener("click", fill_triangle
 document.querySelector("#line").addEventListener("click", line);
 document.querySelector("#output").addEventListener("click", operate);
 document.querySelector("#clear").addEventListener("click", clear);
+document.getElementById("undo").addEventListener("click", undo);
 window.onload = document.getElementById("vykresli").click();	// init picture
 window.onload = document.getElementById("hidden").style.display = "none" // hide range on default
