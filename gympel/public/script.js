@@ -213,8 +213,6 @@ function operate(e) {
 
 	if (clicked[5] == 1) {	// Filled Triangle
 
-		hidden.style.display = "none";
-
 		comm = comm + x + " " + y + " ";
 		TTL = TTL - 1;
 
