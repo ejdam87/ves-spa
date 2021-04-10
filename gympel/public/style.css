@@ -15,7 +15,7 @@ body > section {
 	flex-basis: 50%;
 	display: block;
 }
-.header {
+header {
 	padding: 30px;
 	text-align: center;
 	background: #00AD9F;
@@ -49,70 +49,113 @@ textarea {
 	vertical-align: middle;
 	transition: all 0.5s;
 	cursor: pointer;
+	width: auto;
 }
 #vykresli:active {
 	background-color: #ff7300
 }
+#vykresli:hover {
+	background-color:#ff7300;
+}
 .animate {
-	box-shadow: 0px 5px #999;
+	box-shadow: 0px 5px rgb(124, 124, 124);
+	width: 80%;
 }
 .animate:hover {
-	background-color: #3e8e41;
+	background-color: #009b8e;
 	transform: translateY(1px);
+	box-shadow: 0px 4px rgb(124, 124, 124);
 }
 .animate:active {
-	background-color: #3e8e41;
+	background-color: #008075;
 	box-shadow: 0 2px #666;
 	transform: translateY(4px);
 	outline: none;
     border: none;
   }
+#undo {
+	background-color: #ff8800;
+}
+#undo:hover {
+	background-color: #eb7d00;
+}
+#undo:active {
+	background-color: #d17000;
+}
 #buttony {
 	display: flex;
 	flex-direction: column;
 	margin: 6vw;
 	margin-left: 2vw;
-	margin-right: 2vw;
+	margin-right: 1vw;
 	margin-top: 8vh;
 	position: absolute;
 	right: 0px;
 }
 button {
 	margin: 5px;
-	margin-left: 10px;
-	margin-right: 10px;
-	background-color: #00AD40; /* Green */
+	margin-left: 5px;
+	margin-right: 5px;
+	background-color: #00AD9F;
 	border: none;
 	color: white;
-	padding: 10px 24px;
+	padding: 10px 12px;
 	text-align: center;
 	text-decoration: none;
 	font-size: 26px;
 	border-radius: 30px;
 	vertical-align: middle;
+	width: 85%;
+}
+td {
+	width: 6vw;
+	justify-content: center;
+	vertical-align: middle;
+	margin: auto;
+	text-align: center;
+}
+#choosers {
+	margin: auto;
+	align-items: flex-start;
+}
+i {
+	display: inline-block;
+	text-align: center;
 }
 #tvary {
 	display: grid;
-	flex-wrap: wrap;
 	justify-content: center;
 	margin-bottom: 0px;
 	padding-bottom: 20px;
-
 }
 #colorpicker{
-	margin: 10px;
-	width: 120px;
+	margin: auto;
+	margin-top: 8px;
+	align-content: center;
+	width: 4vw;
 	height: 32px;
 	border: none;
-
+}
+#colorpicker:hover {
+	background: #ff8800;
+}
+#picker {
+	text-align: center;
+	padding-left: 5px;
 }
 #range{
-	margin: 10px;
-	width: 120px;
+	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 15px;
+	width: 5vw;
 	height: 5px;
 	border: none;
-
-
+	justify-content: center;
+}
+#slider {
+	text-align: center;
+	padding-right: 5px;
+	padding-top: 0;
 }
 #pridaj_tvar {
 	background:
@@ -122,8 +165,9 @@ button {
 	rgb(161, 161, 161);
 	background-size: 16px 48px;
 	border-radius: 15px;
-	width: 70%;
+	width: auto;
 	margin: 5px;
+	margin-bottom: 15px;
 	border: 1px solid #222222;
 
 	float: right;
@@ -157,11 +201,16 @@ button {
 }
 .fn_button {
 	margin: auto;
-	margin-top: 50px;
-	background-color: #ff9100;
+	margin-top: 20px;
+	background-color: #ff8800;
 	border-radius: 8px;
 	font-size: 22px;
 	padding: 15px 50px;
+}
+.fn_button:hover {
+	background-color:#ff7300;
+	transition: 0.5s;
+	box-shadow: 0px 0px 8px rgb(146, 146, 146);
 }
 #clear {
 }
@@ -178,8 +227,8 @@ img {
 	width: 45vw;
 	display: block;
 	margin-top: 100px;
-	margin-bottom: 100px;
-	margin-left: 1vw;
+	margin-bottom: 5px;
+	margin-left: 0;
 	margin-right: auto;
 	height: auto;
 	border: 1px solid black;
@@ -189,17 +238,20 @@ img {
 	text-align: center;
 	background: #222222;
 	color: white;
-	font-size: 30px;
+	font-size: 50px;
 	font-family: Verdana;
 	display: flex;
 	flex-wrap: nowrap;
 	justify-content: space-around;
   }
   h6 {
-	  color: #CCCCCC;
-	  font-size: 15px;
+	  color: #f0f0f0;
+	  font-size: 26px;
   }
-
+h2 {
+	font-family: arial;
+	font-weight: 100;
+}
   .button span {
 	cursor: pointer;
 	display: inline-block;
@@ -237,3 +289,29 @@ img {
 		text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 		-webkit-text-stroke: 3px white;
 	}
+
+#download {
+	display: block;
+	margin: auto;
+	margin-bottom: 50px;
+	text-align: center;
+	color: white;
+	font-size: 30px;
+	font-family: Verdana;
+	padding: 20px 80px;
+	width: 40%;
+}
+#generate {
+	padding: 15px 30px;
+}
+.github {
+	font-family: arial;
+	color: rgb(218, 218, 218);
+	text-decoration: none;
+	font-size: 20px;
+	text-align: center;
+	vertical-align: center;
+}
+.autor {
+	height: auto;
+}
