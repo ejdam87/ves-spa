@@ -113,8 +113,6 @@ function operate(e) {
 
 	if (clicked[0] == 1) {	//Filled circle
 
-		hidden.style.display = "none";
-
 		if (TTL == 2) {
 			comm = comm + x + " " + y + " ";
 
@@ -321,4 +319,4 @@ document.querySelector("#output").addEventListener("click", operate);
 document.querySelector("#clear").addEventListener("click", clear);
 document.getElementById("undo").addEventListener("click", undo);
 window.onload = document.getElementById("vykresli").click();	// init picture
-window.onload = document.getElementById("hidden").style.display = "none" // hide range on default
+window.onload = document.getElementById("hidden").style.opacity = "0.2" // hide range on default
