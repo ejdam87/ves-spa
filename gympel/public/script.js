@@ -38,7 +38,7 @@ function fillCircle(e) {
 
 	change_offset(0);
 	document.getElementById("hint").innerHTML = "Currently using: Filled Circle";
-	document.getElementById("hidden").style.opacity = "0.2"
+	remove_hidden()
 	TTL = 2;
 }
 
@@ -46,7 +46,7 @@ function circle(e) {
 
 	change_offset(1);
 	document.getElementById("hint").innerHTML = "Currently using: Circle";
-	document.getElementById("hidden").style.opacity = "1"
+	show_hidden()
 	TTL = 2;
 }
 
@@ -54,7 +54,7 @@ function rectangle(e) {
 
 	change_offset(2);
 	document.getElementById("hint").innerHTML = "Currently using: Rectangle";
-	document.getElementById("hidden").style.opacity = "1"
+	show_hidden()
 	TTL = 2;
 }
 
@@ -62,7 +62,7 @@ function fill_rectangle(e) {
 
 	change_offset(3);
 	document.getElementById("hint").innerHTML = "Currently using: Filled rectangle";
-	document.getElementById("hidden").style.opacity = "0.2"
+	remove_hidden()
 	TTL = 2;
 } 
 
@@ -70,7 +70,7 @@ function triangle(e) {
 
 	change_offset(4);
 	document.getElementById("hint").innerHTML = "Currently using: Triangle";
-	document.getElementById("hidden").style.opacity = "1"
+	show_hidden()
 	TTL = 3;
 }
 
@@ -78,7 +78,7 @@ function fill_triangle(e) {
 
 	change_offset(5);
 	document.getElementById("hint").innerHTML = "Currently using: Filled triangle";
-	document.getElementById("hidden").style.opacity = "0.2"
+	remove_hidden()
 	TTL = 3;
 }
 
@@ -86,7 +86,7 @@ function line(e) {
 
 	change_offset(6);
 	document.getElementById("hint").innerHTML = "Currently using: Line";
-	document.getElementById("hidden").style.opacity = "1"
+	show_hidden()
 	TTL = 2;
 }
 
@@ -257,7 +257,7 @@ function scroll(element){
 
 function clear(){
 	let color = document.querySelector("#colorpicker").value;
-	document.querySelector("#ves").value = "ves v1.0" + "\n" + "CLEAR " + color;
+	document.querySelector("#ves").value = "VES v1.0 600 400" + "\n" + "CLEAR " + color;
 	document.getElementById("vykresli").click();
 
 }
@@ -290,6 +290,14 @@ function undo(){
 }
 
 	
+function remove_hidden(){
+	document.getElementById("hidden").style.opacity = "0.6"
+}
+
+function show_hidden(){
+	document.getElementById("hidden").style.opacity = "1"
+}
+
 
 function download_image(linkElement){
 	let source = document.getElementById("output").src;
@@ -316,4 +324,4 @@ document.querySelector("#output").addEventListener("click", operate);
 document.querySelector("#clear").addEventListener("click", clear);
 document.getElementById("undo").addEventListener("click", undo);
 window.onload = document.getElementById("vykresli").click();	// init picture
-window.onload = document.getElementById("hidden").style.opacity = "0.2" // hide range on default
+window.onload = remove_hidden() // hide range on default
