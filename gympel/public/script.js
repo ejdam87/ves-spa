@@ -37,56 +37,57 @@ function change_offset(shape_index){
 function fillCircle(e) {
 
 	change_offset(0);
-	document.getElementById("hint").innerHTML = "Currently using: Filled Circle";
-	document.getElementById("hidden").style.opacity = "0.2"
+	document.getElementById("hint").innerHTML = "<em>Currently using:</em> <b>Filled Circle</b>";
+	remove_hidden()
 	TTL = 2;
 }
 
 function circle(e) {
 
 	change_offset(1);
-	document.getElementById("hint").innerHTML = "Currently using: Circle";
-	document.getElementById("hidden").style.opacity = "1"
+	document.getElementById("hint").innerHTML = "<em>Currently using:</em> <b>Filled Circle</b>";
+	show_hidden()
 	TTL = 2;
 }
 
 function rectangle(e) {
 
 	change_offset(2);
-	document.getElementById("hint").innerHTML = "Currently using: Rectangle";
-	document.getElementById("hidden").style.opacity = "1"
+	document.getElementById("hint").innerHTML = "<em>Currently using:</em> <b>Rectangle</b>";
+	show_hidden()
 	TTL = 2;
 }
 
 function fill_rectangle(e) {
 
 	change_offset(3);
-	document.getElementById("hint").innerHTML = "Currently using: Filled rectangle";
-	document.getElementById("hidden").style.opacity = "0.2"
+	document.getElementById("hint").innerHTML = "<em>Currently using:</em> <b>Filled Rectangle</b>";
+	remove_hidden()
 	TTL = 2;
 } 
 
 function triangle(e) {
 
 	change_offset(4);
-	document.getElementById("hint").innerHTML = "Currently using: Triangle";
-	document.getElementById("hidden").style.opacity = "1"
+	document.getElementById("hint").innerHTML = "<em>Currently using:</em> <b>Triangle</b>";
+	show_hidden()
 	TTL = 3;
 }
 
 function fill_triangle(e) {
 
 	change_offset(5);
-	document.getElementById("hint").innerHTML = "Currently using: Filled triangle";
-	document.getElementById("hidden").style.opacity = "0.2"
+	document.getElementById("hint").innerHTML = "<em>Currently using:</em> <b>Filled triangle</b>";
+	remove_hidden()
 	TTL = 3;
 }
 
 function line(e) {
 
 	change_offset(6);
-	document.getElementById("hint").innerHTML = "Currently using: Line";
-	document.getElementById("hidden").style.opacity = "1"
+	document.getElementById("hint").innerHTML = "<em>Currently using:</em> <b>Line</b>";
+
+	show_hidden()
 	TTL = 2;
 }
 
@@ -212,8 +213,6 @@ function operate(e) {
 
 	if (clicked[5] == 1) {	// Filled Triangle
 
-		hidden.style.display = "none";
-
 		comm = comm + x + " " + y + " ";
 		TTL = TTL - 1;
 
@@ -257,7 +256,7 @@ function scroll(element){
 
 function clear() {
 	let color = document.querySelector("#colorpicker").value;
-	document.querySelector("#ves").value = "ves v1.0" + "\n" + "CLEAR " + color;
+	document.querySelector("#ves").value = "VES v1.0 600 400" + "\n" + "CLEAR " + color;
 	document.getElementById("vykresli").click();
 
 }
@@ -286,7 +285,7 @@ function undo(){
 	let i = 0
 
 
-	while (commands.includes("")){
+	while (commands[len+1] == ("")){
 		commands.pop()
 		len = commands.length-2
 	}
@@ -304,6 +303,14 @@ function undo(){
 }
 
 	
+function remove_hidden(){
+	document.getElementById("hidden").style.opacity = "0.6"
+}
+
+function show_hidden(){
+	document.getElementById("hidden").style.opacity = "1"
+}
+
 
 function download_image(linkElement){
 	let source = document.getElementById("output").src;
@@ -333,4 +340,4 @@ document.querySelector("#neg_filter").addEventListener("click", negative);
 document.getElementById("undo").addEventListener("click", undo);
 
 window.onload = document.getElementById("vykresli").click();	// init picture
-window.onload = document.getElementById("hidden").style.opacity = "0.2" // hide range on default
+window.onload = remove_hidden() // hide range on default
