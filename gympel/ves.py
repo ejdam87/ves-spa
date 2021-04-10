@@ -39,6 +39,17 @@ class VESreader:
         self.picture.putpixel((x,y), (int(bw[0]*255), int(bw[1]*255), int(bw[2]*255)))
 
 
+  def negative(self):
+
+    for x in range(self.width):
+
+      for y in range(self.height):
+
+        rgb = self.picture.getpixel((x,y))
+        
+        self.picture.putpixel((x,y), (255 - rgb[0], 255 - rgb[1], 255 - rgb[2]))
+
+
   def convert_x(self, x: int) -> int:
     """
     Method responsible for converting x-coordinate of point
@@ -96,6 +107,9 @@ class VESreader:
       
       elif command == "GRAYSCALE":
         self.grayscale()
+
+      elif command == "NEGATIVE":
+        self.negative()
 
       elif command == "LINE":
         Ax = self.coord_convertion(line[1])
