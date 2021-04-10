@@ -265,6 +265,34 @@ function clear(){
 }
 
 
+function undo(){
+	let text = document.querySelector("#ves").value
+	let commands = text.split("\n")
+	let len = commands.length-2
+	console.log(len)
+
+	let result = ""
+	let i = 0
+
+
+	while (commands.includes("")){
+		commands.pop()
+		len = commands.length-2
+	}
+
+	while (i < len){
+		console.log(commands)
+		result += commands[i] + '\n'
+		i++
+	}
+	result += commands[i]
+	console.log(commands)
+	document.querySelector("#ves").value =  result
+	console.log(result)
+	document.getElementById("vykresli").click();
+}
+
+	
 
 
 let clicked = [0, 0, 0, 0, 0, 0, 0];	//offsets
@@ -285,5 +313,6 @@ document.querySelector("#fill_triangle").addEventListener("click", fill_triangle
 document.querySelector("#line").addEventListener("click", line);
 document.querySelector("#output").addEventListener("click", operate);
 document.querySelector("#clear").addEventListener("click", clear);
+document.getElementById("undo").addEventListener("click", undo);
 window.onload = document.getElementById("vykresli").click();	// init picture
 window.onload = document.getElementById("hidden").style.display = "none" // hide range on default
