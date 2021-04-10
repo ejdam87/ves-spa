@@ -272,7 +272,7 @@ function undo(){
 	let i = 0
 
 
-	while (commands.includes("")){
+	while (commands[len+1] == ("")){
 		commands.pop()
 		len = commands.length-2
 	}
