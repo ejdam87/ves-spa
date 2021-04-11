@@ -1,6 +1,7 @@
 from io import BytesIO
 from flask import Flask, send_file, request, send_from_directory
 from ves import VESreader
+from example_handler import get_examples, pick_example, get_content
 app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
@@ -17,7 +18,6 @@ def serve_pil_image(img):
   return send_file(img_io, mimetype='image/png')
 
 
-
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def index(path):
@@ -25,10 +25,20 @@ def index(path):
   Tato funkcia bude odpovedat na vsetky ostatne HTTP poziadavky
   pre ktore nemame specialnu funkciu. Bude hladat subory v priecinku public.
   """
-  if (len(path) == 0): # ak nezadany ziaden subor, teda cesta / chceme index.html
+  
+  if (len(path) == 0):
+    # ak nezadany ziaden subor, teda cesta / chceme index.html
+    print("Here")
     return send_from_directory('public', 'index.html')
 
   return send_from_directory('public', path)
+
+
+@app.route('/example')
+def example():
+  possible = get_examples()
+  example_file = pick_example(possible)
+  return get_content(example_file)
 
 
 @app.route('/render', methods=['post'])
