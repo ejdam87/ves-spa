@@ -36,6 +36,7 @@ function change_offset(shape_index){
 
 function fillCircle(e) {
 
+	points = [];
 	change_offset(0);
 	document.getElementById("hint").innerHTML = "<em>Currently using:</em> <b>Filled Circle</b>";
 	remove_hidden()
@@ -44,8 +45,9 @@ function fillCircle(e) {
 
 function circle(e) {
 
+	points = [];
 	change_offset(1);
-	document.getElementById("hint").innerHTML = "<em>Currently using:</em> <b>Filled Circle</b>";
+	document.getElementById("hint").innerHTML = "<em>Currently using:</em> <b>Circle</b>";
 	show_hidden()
 	TTL = 2;
 }
@@ -317,6 +319,23 @@ function download_image(linkElement){
 	linkElement.href = source
 }
 
+function generate_random_pic(e) {
+	e.preventDefault();
+	const url = this.action;
+	const method = this.method;
+	fetch(url, {method: method})
+		.then((res) => res.blob())
+		.then((example) => {
+			prom = example.text()
+
+			prom.then(
+				function(result){
+					document.querySelector("#ves").value = result;
+					document.getElementById("vykresli").click();
+			})
+		})
+}
+
 let clicked = [0, 0, 0, 0, 0, 0, 0];	//offsets
 let TTL = null;	//time-to-live
 let comm = "";	//single-line
@@ -337,7 +356,8 @@ document.querySelector("#output").addEventListener("click", operate);
 document.querySelector("#clear").addEventListener("click", clear);
 document.querySelector("#bw_filter").addEventListener("click", grayscale);
 document.querySelector("#neg_filter").addEventListener("click", negative);
-document.getElementById("undo").addEventListener("click", undo);
+document.querySelector("#undo").addEventListener("click", undo);
+document.querySelector("#GenerateForm").addEventListener("submit", generate_random_pic);
 
 window.onload = document.getElementById("vykresli").click();	// init picture
 window.onload = remove_hidden() // hide range on default
