@@ -1,7 +1,7 @@
 from io import BytesIO
 from flask import Flask, send_file, request, send_from_directory
 from ves import VESreader
-from example_handler import get_examples, pick_example, get_content
+from example_handler import get_content
 app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
@@ -36,9 +36,7 @@ def index(path):
 
 @app.route('/example')
 def example():
-  possible = get_examples()
-  example_file = pick_example(possible)
-  return get_content(example_file)
+  return get_content()
 
 
 @app.route('/render', methods=['post'])
