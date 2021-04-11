@@ -1,19 +1,24 @@
 import os
 import random
+import json
 
-
-def get_examples():
+def get_content():
   dirname = os.path.dirname(__file__)
-  filename = os.path.join(dirname + "/public/examples/list.txt")
-  with open(filename, "r") as lof:
-    return lof.read().split(" ")
+  print(dirname)
+  with open(dirname + "\public\examples.json") as f:
+    dzejson = json.load(f)
+  example_names = []
+  for keys in dzejson:
+    example_names.append(keys)
+  print(example_names)
+  example_name = random.choice(example_names)
+  example = dzejson[example_name]
+  print(example)
+  return example
 
-
-def pick_example(examples):
-  return random.choice(examples)
-
-def get_content(f):
+def print_example_by_name(nazov):
   dirname = os.path.dirname(__file__)
-  file_path = dirname + "/public/examples/" + f + ".txt"
-  with open(file_path, "r") as example:
-    return example.read()
+  print(dirname)
+  with open(dirname + "\public\examples.json") as f:
+    dzejson = json.load(f)
+  print(dzejson[nazov])
