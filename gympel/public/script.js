@@ -107,9 +107,14 @@ function calculate_radius(points) {
 }
 
 function operate(e) {
-	console.log(clicked)
+	const default_size = get_defaults();
+	const def_width = default_size[0];
+	const def_height = default_size[1];
+	const real_width = document.querySelector("img").offsetWidth;
+	const real_height = (def_height / def_width) * real_width;
     let x = event.pageX - this.offsetLeft;
     let y = event.pageY - this.offsetTop;
+    console.log(x,y);
     points.push([x,y]);
     let text = document.querySelector("#ves").value;
 
@@ -343,8 +348,8 @@ function generate_random_pic(e) {
 }
 
 function get_defaults() {
-	header = document.querySelector("#ves").value;
-	parts = header.split(" ");
+	cont = document.querySelector("#ves").value.split("\n");
+	parts = cont[0].split(" ");
 	width = parts[2];
 	height = parts[3];
 	return [width, height];
@@ -363,6 +368,7 @@ let TTL = null;	//time-to-live
 let comm = "";	//single-line
 let points = [];	//an array of point-coords
 let current_shape = null;
+
 const default_size = get_defaults();
 const def_width = default_size[0];
 const def_height = default_size[1];
