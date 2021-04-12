@@ -36,10 +36,10 @@ def add_example(example: str, nazov: str) -> None:
     json.dump(examples, f)
 
 
-if __name__ == "__main__":
-  nazov = ""
+if __name__ == "__main__":  #If script is executed
+  nazov = "black_hole"
   example = {nazov:'''VES v1.0 600 400
-  CLEAR #0000
+CLEAR #89899a
   '''}
 
   add_example(example, nazov)
