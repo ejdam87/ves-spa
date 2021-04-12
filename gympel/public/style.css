@@ -59,7 +59,6 @@ textarea {
 }
 .animate {
 	box-shadow: 0px 5px rgb(124, 124, 124);
-	width: 80%;
 }
 .animate:hover {
 	background-color: #009b8e;
@@ -105,7 +104,7 @@ button {
 	font-size: 26px;
 	border-radius: 30px;
 	vertical-align: middle;
-	width: 85%;
+	width: 5vw;
 }
 td {
 	width: 6vw;
@@ -113,6 +112,9 @@ td {
 	vertical-align: middle;
 	margin: auto;
 	text-align: center;
+}
+tr {
+	width: auto;
 }
 #choosers {
 	margin: auto;
@@ -126,7 +128,7 @@ i {
 	display: grid;
 	justify-content: center;
 	margin-bottom: 0px;
-	padding-bottom: 20px;
+	padding-bottom: 15px;
 }
 #colorpicker{
 	margin: auto;
@@ -169,11 +171,10 @@ i {
 	margin: 5px;
 	margin-bottom: 15px;
 	border: 1px solid #222222;
-
 	float: right;
 }
 #Nadpis {
-	padding: 20px;
+	padding: 0px;
 	padding-bottom: 5px;
 	padding-top: 10px;
 	color:white;
@@ -188,7 +189,7 @@ i {
 	display: grid;
 	flex-wrap: wrap;
 	justify-content: center;
-	padding-bottom: 10px;
+	padding-bottom: 15px;
 }
 .filter_button {
 	background-color: #2CC1D6;
@@ -205,7 +206,8 @@ i {
 	background-color: #ff8800;
 	border-radius: 8px;
 	font-size: 22px;
-	padding: 15px 50px;
+	padding: 15px 0px;
+	width: 80%;
 }
 .fn_button:hover {
 	background-color:#ff7300;
@@ -224,7 +226,7 @@ i {
 	margin-bottom: 150px;
 }
 img {
-	width: 45vw;
+	width: calc(57vw - 200px);
 	display: block;
 	margin-top: 100px;
 	margin-bottom: 5px;
@@ -289,9 +291,6 @@ h2 {
 		text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 		-webkit-text-stroke: 3px white;
 	}
-#tictactoe{
-	
-}
 
 #download {
 	display: block;
@@ -301,8 +300,8 @@ h2 {
 	color: white;
 	font-size: 30px;
 	font-family: Verdana;
-	padding: 20px 80px;
-	width: 40%;
+	padding: 20px 100px;
+	width: auto;
 }
 #generate {
 	padding: 15px 30px;

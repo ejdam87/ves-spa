@@ -1,43 +1,46 @@
 import os
-import random
 import json
+from random import choice
 
-def get_content():
+
+def get_content() -> str:
+  """
+  Returns random VES script from given scripts in
+  file examples.json located in public folder
+  """
+
   dirname = os.path.dirname(__file__)
   with open(dirname + "\public\examples.json") as f:
-    dzejson = json.load(f)
+    json_content = json.load(f)
   example_names = []
-  for keys in dzejson:
+  for keys in json_content:
     example_names.append(keys)
-  example_name = random.choice(example_names)
-  example = dzejson[example_name]
+  example_name = choice(example_names)
+  example = json_content[example_name]
   return example
 
-def print_example_by_name(nazov):
-  dirname = os.path.dirname(__file__)
-  with open(dirname + "\public\examples.json") as f:
-    dzejson = json.load(f)
-  print(dzejson[nazov])
 
-def add_example(example, nazov):
-    dirname = os.path.dirname(__file__)    
-    with open(dirname + "\public\examples.json") as f:
-        examples = json.load(f)
+def add_example(example: str, nazov: str) -> None:
+  """
+  Adds a ves script "example" with name "nazov"
+  to examples.json file
+  """
+
+  dirname = os.path.dirname(__file__)
+    
+  with open(dirname + "\public\examples.json") as f:
+    examples = json.load(f)
     examples[nazov] = example[nazov]
-    print(examples)
     
-    with open(dirname + "\public\examples.json", 'w') as f:
-        json.dump(examples, f)
-    
-nazov = ""
-example = {nazov:'''VES v1.0 600 400
-CLEAR #0000
-'''}
-
-def remove_example_by_name(nazov):
-  dirname = os.path.dirname(__file__)
-  with open(dirname + "\public\examples.json") as f:
-    dzejson = json.load(f)
-  dzejson.pop(nazov)
   with open(dirname + "\public\examples.json", 'w') as f:
-    json.dump(dzejson, f)
+    json.dump(examples, f)
+
+
+if __name__ == "__main__":  #If script is executed
+  nazov = "black_hole"
+  example = {nazov:'''VES v1.0 600 400
+CLEAR #89899a
+  '''}
+
+  add_example(example, nazov)
+  
