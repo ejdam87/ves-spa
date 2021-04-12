@@ -50,6 +50,7 @@ def render():
 
   ves = request.form.get('ves') # load ves content
   width = request.form.get('width') # load wanted width of picture
+  print(width)
   render = VESreader(width, ves)  # Create render object
   bugs = render.get_bug_report()
   if len(bugs) != 0:  # If there are some bugs

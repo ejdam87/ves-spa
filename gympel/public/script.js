@@ -117,15 +117,16 @@ function operate(e) {
 	if (clicked[0] == 1) {	//Filled circle
 
 		if (TTL == 2) {
-			comm = comm + x + " " + y + " ";
+			comm = comm + Math.round(convert_to_default(x, def_width, real_width)) + " " + Math.round(convert_to_default(y, def_height, real_height)) + " ";
 
 		}
 
 		TTL = TTL - 1;
 
 		if (TTL == 0) {
-			
+		
 			let r = calculate_radius(points);
+			r = Math.round(convert_distance(r, def_width, real_width));
 			let color = document.querySelector("#colorpicker").value;
 			const sprava = "FILL_CIRCLE " + comm + r + " " + color;
 			document.querySelector("#ves").value = text  + "\n" + sprava;
@@ -141,7 +142,7 @@ function operate(e) {
 	if (clicked[1] == 1) {	// Circle
 
 		if (TTL == 2) {
-			comm = comm + x + " " + y + " ";
+			comm = comm + Math.round(convert_to_default(x, def_width, real_width)) + " " + Math.round(convert_to_default(y, def_height, real_height)) + " ";
 
 		}
 
@@ -150,7 +151,9 @@ function operate(e) {
 		if (TTL == 0) {
 
 			let r = calculate_radius(points);
+			r = Math.round(convert_distance(r, def_width, real_width));
 			let width = document.querySelector("#range").value;
+			width = Math.round(convert_distance(width, def_width, real_width));
 			let color = document.querySelector("#colorpicker").value;	
 			const sprava = "CIRCLE " + comm + r + " " + width + " " + color;
 			document.querySelector("#ves").value = text  + "\n" + sprava;
@@ -164,12 +167,13 @@ function operate(e) {
 
 	if (clicked[2] == 1) {	// Rectangle
 
-		comm = comm + x + " " + y + " ";
+		comm = comm + Math.round(convert_to_default(x, def_width, real_width)) + " " + Math.round(convert_to_default(y, def_height, real_height)) + " ";
 		TTL = TTL - 1;
 
 		if (TTL == 0) {
 
 			let width = document.querySelector("#range").value;
+			width = Math.round(convert_distance(width, def_width, real_width));
 			let color = document.querySelector("#colorpicker").value;	
 			const sprava = "RECT " + comm + width + " " + color;
 			document.querySelector("#ves").value = text  + "\n" + sprava;
@@ -181,7 +185,7 @@ function operate(e) {
 
 	if (clicked[3] == 1) {	// Filled Rectangle
 
-		comm = comm + x + " " + y + " ";
+		comm = comm + Math.round(convert_to_default(x, def_width, real_width)) + " " + Math.round(convert_to_default(y, def_height, real_height)) + " ";
 		TTL = TTL - 1;
 
 		if (TTL == 0) {
@@ -198,12 +202,13 @@ function operate(e) {
 	if (clicked[4] == 1) {	// Triangle
 
 
-		comm = comm + x + " " + y + " ";
+		comm = comm + Math.round(convert_to_default(x, def_width, real_width)) + " " + Math.round(convert_to_default(y, def_height, real_height)) + " ";
 		TTL = TTL - 1;
 
 		if (TTL == 0) {
 			
 			let width = document.querySelector("#range").value;
+			width = Math.round(convert_distance(width, def_width, real_width));
 			let color = document.querySelector("#colorpicker").value;	
 			const sprava = "TRIANGLE " + comm + width + " " + color;
 			document.querySelector("#ves").value = text  + "\n" + sprava;
@@ -215,7 +220,7 @@ function operate(e) {
 
 	if (clicked[5] == 1) {	// Filled Triangle
 
-		comm = comm + x + " " + y + " ";
+		comm = comm + Math.round(convert_to_default(x, def_width, real_width)) + " " + Math.round(convert_to_default(y, def_height, real_height)) + " ";
 		TTL = TTL - 1;
 
 		if (TTL == 0) {
@@ -232,12 +237,13 @@ function operate(e) {
 	if (clicked[6] == 1) {	// Line
 
 
-		comm = comm + x + " " + y + " ";
+		comm = comm + Math.round(convert_to_default(x, def_width, real_width)) + " " + Math.round(convert_to_default(y, def_height, real_height)) + " ";
 		TTL = TTL - 1;
 
 		if (TTL == 0) {
 
 			let width = document.querySelector("#range").value;
+			width = Math.round(convert_distance(width, def_width, real_width));
 			let color = document.querySelector("#colorpicker").value;			
 			const sprava = "LINE " + comm + width + " " + color;
 			document.querySelector("#ves").value = text  + "\n" + sprava;
@@ -336,12 +342,32 @@ function generate_random_pic(e) {
 		})
 }
 
+function get_defaults() {
+	header = document.querySelector("#ves").value;
+	parts = header.split(" ");
+	width = parts[2];
+	height = parts[3];
+	return [width, height];
+}
+
+function convert_to_default(click_cord, default_size, real_size) {
+	return (default_size * click_cord) / real_size;
+}
+
+function convert_distance(distance, default_size, real_size) {
+	return (default_size * distance) / real_size;
+}
+
 let clicked = [0, 0, 0, 0, 0, 0, 0];	//offsets
 let TTL = null;	//time-to-live
 let comm = "";	//single-line
 let points = [];	//an array of point-coords
 let current_shape = null;
-
+const default_size = get_defaults();
+const def_width = default_size[0];
+const def_height = default_size[1];
+const real_width = document.querySelector("img").offsetWidth;
+const real_height = (def_height / def_width) * real_width;
 
 
 document.querySelector("#VESform").addEventListener("submit", handleSubmit);
