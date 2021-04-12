@@ -35,6 +35,35 @@ def add_example(example: str, nazov: str) -> None:
   with open(dirname + "\public\examples.json", 'w') as f:
     json.dump(examples, f)
 
+def remove_example_by_name(nazov):
+  """
+  Removes a ves script "example" with name "nazov"
+  from examples.json file
+  """
+  
+  dirname = os.path.dirname(__file__)
+  
+  with open(dirname + "\public\examples.json") as f:
+    dzejson = json.load(f)
+  dzejson.pop(nazov)
+  
+  with open(dirname + "\public\examples.json", 'w') as f:
+    json.dump(dzejson, f)
+
+def print_example_by_name(nazov):
+  """
+  Returns a ves script "example" with name "nazov"
+  from examples.json file
+  """
+  
+  dirname = os.path.dirname(__file__)
+  
+  with open(dirname + "\public\examples.json") as f:
+    dzejson = json.load(f)
+    
+  return dzejson[nazov]
+
+
 
 if __name__ == "__main__":  #If script is executed
   nazov = "black_hole"
