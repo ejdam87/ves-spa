@@ -6,24 +6,40 @@ class VESreader:
 
 
   def __init__(self, width, content):
-    self.width = width
+    self.width = int(width)
     self.line_count = 0
+    self.bug_report = []
     self.render(content)
 
 
   def render(self, content):
 
     data = content.split("\n")
-    self.width = self.coord_convertion(self.width)
-    self.height = int(3/4 * self.width)
-    self.default_width = self.width
-    self.default_height = self.height
+    header = data[0]
+
+    if len(header.split(" ")) == 4: # If header is provided
+      parts = header.split(" ")
+      self.default_width = int(parts[2])
+      self.default_height = int(parts[3])
+      self.height = int((self.default_height
+                                           /self.default_width)
+                                          * self.width)
+    else:
+      self.default_width = self.width
+      self.height = int((3 / 4) * self.width)
+      self.default_height = self.height
+      
+
     
     self.create_image()
     for c in data[1:]:
       self.line_count += 1
       line = c.split(" ")
       self.command_handler(line)
+
+
+  def get_bug_report(self):
+    return self.bug_report
 
 
   def grayscale(self):
@@ -201,10 +217,10 @@ class VESreader:
         self.gradient_rectangle(self.convert_point((Ax, Ay)), width, height, color)
 
       else:
-        print(f"Syntax error on line {self.line_count}: Unknown command {command}")
+        self.bug_report.append(f"Syntax error on line {self.line_count}: Unknown command {command}")
     
     else:
-      print(f"Syntax error on line {self.line_count}: Skipped line due to invalid syntax")
+      self.bug_report.append(f"Syntax error on line {self.line_count}: Skipped line due to invalid syntax")
 
 
   def file_exists(self, f) -> bool:
@@ -237,8 +253,6 @@ class VESreader:
 
     hex_num = hex_num.replace("\n","")
     convertion = {
-        "A": 10, "B": 11, "C": 12, 
-        "D": 13, "E": 14, "F": 15,
         "a": 10, "b": 11, "c": 12, 
         "d": 13, "e": 14, "f": 15
         }
@@ -246,10 +260,10 @@ class VESreader:
 
     for index in range(len(hex_num)):
 
-      if hex_num[index] in convertion:
-        decimal += (16**(len(hex_num) - index - 1)) * convertion[hex_num[index]]
+      if hex_num[index].lower() in convertion:
+        decimal += (16**(len(hex_num) - index - 1)) * convertion[hex_num[index].lower()]
       else:
-        decimal += (16**(len(hex_num) - index - 1)) * int(hex_num[index])
+        decimal += (16**(len(hex_num) - index - 1)) * int(hex_num[index].lower())
     
     return decimal
 

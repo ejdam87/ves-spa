@@ -51,6 +51,11 @@ def render():
   ves = request.form.get('ves') # load ves content
   width = request.form.get('width') # load wanted width of picture
   render = VESreader(width, ves)  # Create render object
+  bugs = render.get_bug_report()
+  if len(bugs) != 0:  # If there are some bugs
+    for bug in bugs:
+      print(bug)
+
   return serve_pil_image(render.picture) # return converted PIL image object to .png file
 
 app.run()
