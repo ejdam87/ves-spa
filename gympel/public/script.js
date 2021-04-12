@@ -114,7 +114,6 @@ function operate(e) {
 	const real_height = (def_height / def_width) * real_width;
     let x = event.pageX - this.offsetLeft;
     let y = event.pageY - this.offsetTop;
-    console.log(x,y);
     points.push([x,y]);
     let text = document.querySelector("#ves").value;
 

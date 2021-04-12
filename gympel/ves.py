@@ -28,9 +28,7 @@ class VESreader:
       self.default_width = self.width
       self.height = int((3 / 4) * self.width)
       self.default_height = self.height
-      
 
-    
     self.create_image()
     for c in data[1:]:
       self.line_count += 1
@@ -161,8 +159,8 @@ class VESreader:
         Ay = self.coord_convertion(line[2])
         Bx = self.coord_convertion(line[3])
         By = self.coord_convertion(line[4])
-        width = abs(Ax - Bx)
-        height = abs(Ay - By)
+        width = int(abs(Ax - Bx) * (self.width / self.default_width))
+        height = int(abs(Ay - By) * (self.height / self.default_height))
 
         Ax = min(Ax, Bx)
         Ay = min(Ay, By)
@@ -196,8 +194,8 @@ class VESreader:
         Ay = self.coord_convertion(line[2])
         Bx = self.coord_convertion(line[3])
         By = self.coord_convertion(line[4])
-        width = abs(Ax - Bx)
-        height = abs(Ay - By)
+        width = int(abs(Ax - Bx) * (self.width / self.default_width))
+        height = int(abs(Ay - By) * (self.height / self.default_height))
 
         Ax = min(Ax, Bx)
         Ay = min(Ay, By)
