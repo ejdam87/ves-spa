@@ -8,10 +8,11 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 def serve_pil_image(img):
   """
-  Tato funkcia umozni obrazok z kniznice PIL ulozit
-  do virtualneho suboru v pamati a ten subor potom
-  vratit ako HTTP odpoved
+  Allows to save PIL image object to a
+  virtual file in memory and then return
+  it as a HTTP response
   """
+
   img_io = BytesIO()
   img.save(img_io, 'PNG', quality=70)
   img_io.seek(0)
@@ -22,13 +23,11 @@ def serve_pil_image(img):
 @app.route('/<path:path>')
 def index(path):
   """
-  Tato funkcia bude odpovedat na vsetky ostatne HTTP poziadavky
-  pre ktore nemame specialnu funkciu. Bude hladat subory v priecinku public.
+  HTTP response for other actions
   """
   
   if (len(path) == 0):
     # ak nezadany ziaden subor, teda cesta / chceme index.html
-    print("Here")
     return send_from_directory('public', 'index.html')
 
   return send_from_directory('public', path)
@@ -36,21 +35,22 @@ def index(path):
 
 @app.route('/example')
 def example():
+  """
+  Returns HTTP response for example action
+  """
+
   return get_content()
 
 
 @app.route('/render', methods=['post'])
 def render():
   """
-  Tato funkcia dostane v HTTP poziadavke zdrojovy
-  kod pre VES a pozadovanu sirku
-  vyrenderuje obrazok a vrati ho ako HTTP odpoved
+  Returns HTTP response for render action
   """
-  ves = request.form.get('ves') # nacitanie hodnoty ktoru sme dostali v poziadavke
-  width = request.form.get('width') # nacitanie hodnoty ktoru sme dostali v poziadavke
-  # img = render_ves(ves, width) # tu posleme VES riadky do funkcie render_ves z projektu z prvého polroka
-  render = VESreader(width, ves)
-  print(width)
-  return serve_pil_image(render.picture) # vratime vyrenderovany obrazok ako jpg
+
+  ves = request.form.get('ves') # load ves content
+  width = request.form.get('width') # load wanted width of picture
+  render = VESreader(width, ves)  # Create render object
+  return serve_pil_image(render.picture) # return converted PIL image object to .png file
 
 app.run()
