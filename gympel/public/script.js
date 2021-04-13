@@ -110,12 +110,23 @@ function operate(e) {
 	const default_size = get_defaults();
 	const def_width = default_size[0];
 	const def_height = default_size[1];
-	const real_width = document.querySelector("img").offsetWidth;
-	const real_height = (def_height / def_width) * real_width;
-    let x = event.pageX - this.offsetLeft;
-    let y = event.pageY - this.offsetTop;
+	const div_width = document.querySelector("#image").offsetWidth;
+	const div_height = document.querySelector("#image").offsetHeight;
+
+
+	let im = document.querySelector("img")
+	let sizes = getImgSizeInfo(im);
+	let real_width = Math.round(sizes["width"]);
+	let real_height = Math.round(sizes["height"]);
+
+	const diff_y = Math.round(Math.abs(div_height - real_height) / 2);
+	const diff_x = Math.round(Math.abs(div_width - real_width) / 2);
+
+    let x = event.pageX - this.offsetLeft - diff_x;
+    let y = event.pageY - this.offsetTop - diff_y;
     points.push([x,y]);
     let text = document.querySelector("#ves").value;
+    console.log(x,y);
 
 
 	if (clicked[0] == 1) {	//Filled circle
@@ -361,6 +372,36 @@ function convert_to_default(click_cord, default_size, real_size) {
 function convert_distance(distance, default_size, real_size) {
 	return (default_size * distance) / real_size;
 }
+
+
+function getRenderedSize(contains, cWidth, cHeight, width, height, pos){
+  var oRatio = width / height,
+      cRatio = cWidth / cHeight;
+  return function() {
+    if (contains ? (oRatio > cRatio) : (oRatio < cRatio)) {
+      this.width = cWidth;
+      this.height = cWidth / oRatio;
+    } else {
+      this.width = cHeight * oRatio;
+      this.height = cHeight;
+    }      
+    this.left = (cWidth - this.width)*(pos/100);
+    this.right = this.width + this.left;
+    return this;
+  }.call({});
+}
+
+
+function getImgSizeInfo(img) {
+  var pos = window.getComputedStyle(img).getPropertyValue('object-position').split(' ');
+  return getRenderedSize(true,
+                         img.width,
+                         img.height,
+                         img.naturalWidth,
+                         img.naturalHeight,
+                         parseInt(pos[0]));
+}
+
 
 let clicked = [0, 0, 0, 0, 0, 0, 0];	//offsets
 let TTL = null;	//time-to-live
