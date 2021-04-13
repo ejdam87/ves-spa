@@ -227,7 +227,7 @@ i {
 }
 #image {
 	width: calc(57vw - 200px);
-	height: 60vh;
+	height: calc(60vh + 20px);
 	display: block;
 	margin-top: 10vh;
 	background: none;
@@ -244,6 +244,7 @@ img {
 	object-fit: contain;
 	filter: url("filters.svg#inset-outline-1")
     drop-shadow(0px 0px 1px rgb(0, 0, 0));
+	border: 1px solid black;
 }
 .footer {
 	padding: 50px;
@@ -327,3 +328,50 @@ h2 {
 .autor {
 	height: auto;
 }
+#question {
+	font-size: 26px;
+	margin-left: 10px;
+	color: #00AD9F;
+	filter: drop-shadow(0px 0px 2px #8a8a8a);
+}
+#question:hover {
+	color: #ff8800;
+	transition: 0.2s;
+}
+#UnderImageLine {
+	display: flex;
+}
+.tooltip {
+	position: relative;
+	display: inline-block;
+  }
+  .tooltip .tooltiptext {
+	visibility: hidden;
+	width: auto;
+	background-color: #222222;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px 10px;
+	position: absolute;
+	z-index: 1;
+	opacity: 0;
+	font-family: Verdana;
+	top: -12px;
+ 	left: 140%;
+  }
+  .tooltip:hover .tooltiptext {
+	visibility: visible;
+	opacity: 1;
+	transition: opacity 0.3s;
+  }
+  .tooltip .tooltiptext::after {
+	content: " ";
+	position: absolute;
+	top: 50%;
+	right: 100%; /* To the left of the tooltip */
+	margin-top: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: transparent black transparent transparent;
+  }
