@@ -441,4 +441,5 @@ document.querySelector("#GenerateForm").addEventListener("submit", generate_rand
 
 document.getElementById("info").innerHTML = "Click on the object in the right panel for drawing"
 document.getElementById("vykresli").click();	// init picture
-remove_hidden() // hide range on default
+remove_hidden(); // hide range on default
+console.log(document.querySelector("header").width)
