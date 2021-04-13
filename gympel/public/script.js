@@ -417,12 +417,40 @@ let comm = "";	//single-line
 let points = [];	//an array of point-coords
 let current_shape = null;
 
-const default_size = get_defaults();
-const def_width = default_size[0];
-const def_height = default_size[1];
-const real_width = document.querySelector("img").offsetWidth;
-const real_height = (def_height / def_width) * real_width;
 
+function to_potrait() {
+	const splitted = document.querySelector("#ves").value.split("\n")
+	const header = splitted[0];
+	const content = stringify_without_first(splitted);
+	const parts = header.split(" ");
+	if (parts[2] > parts[3]) {
+		const width = parts[3];
+		const height = parts[2];
+		document.querySelector("#ves").value = parts[0] + " " + parts[1] + " " + width + " " + height + "\n" + content;
+		document.getElementById("vykresli").click();
+	}		
+}
+
+function to_landscape() {
+	const splitted = document.querySelector("#ves").value.split("\n")
+	const header = splitted[0];
+	const content = stringify_without_first(splitted);
+	const parts = header.split(" ");
+	if (parts[2] < parts[3]) {
+		const width = parts[3];
+		const height = parts[2];
+		document.querySelector("#ves").value = parts[0] + " " + parts[1] + " " + width + " " + height + "\n" + content;
+		document.getElementById("vykresli").click();
+	}
+}
+
+function stringify_without_first(array) {
+	let res = "";
+	for (let i = 1; i < array.length; i++) {
+		res = res + array[i] + "\n"
+	}
+	return res
+}
 
 document.querySelector("#VESform").addEventListener("submit", handleSubmit);
 document.querySelector("#fill_circle").addEventListener("click", fillCircle);
@@ -437,6 +465,8 @@ document.querySelector("#clear").addEventListener("click", clear);
 document.querySelector("#bw_filter").addEventListener("click", grayscale);
 document.querySelector("#neg_filter").addEventListener("click", negative);
 document.querySelector("#undo").addEventListener("click", undo);
+document.querySelector("#landscape").addEventListener("click", to_landscape);
+document.querySelector("#portrait").addEventListener("click", to_potrait);
 document.querySelector("#GenerateForm").addEventListener("submit", generate_random_pic);
 
 document.getElementById("info").innerHTML = "Click on the object in the right panel for drawing"
