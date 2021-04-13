@@ -23,16 +23,21 @@
 		<button class="button" id="vykresli"><span><i class="fas fa-pencil-alt"></i> Draw!</span></button>
 	</form>
 
-	<div>
-		<div id="image">
-			<img id="output" />
-			<div id="UnderImageLine">
+	<div id="image">
+		<img id="output" />
+		<hr>
+		<div id="UnderImageLine">
+			<div id="HintText">
 				<h2 id="hint"><em>Currently using:</em> <b>Nothing</b></h2>
 				<div class="tooltip"><i id="question" class="far fa-question-circle"></i>
 					<span id="info" class="tooltiptext">Tooltip text</span>
-				  </div>
-				  
+				</div>
 			</div>
+			<div id="AspectRatioButtons">
+				<button class="SmallButton" id="landscape"><i class="fas fa-image"></i></button>
+				<button class="SmallButton" id="portrait"><i class="fas fa-portrait"></i></button>
+			</div>
+				
 		</div>
 	</div>
 
