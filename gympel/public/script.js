@@ -439,5 +439,6 @@ document.querySelector("#neg_filter").addEventListener("click", negative);
 document.querySelector("#undo").addEventListener("click", undo);
 document.querySelector("#GenerateForm").addEventListener("submit", generate_random_pic);
 
-window.onload = document.getElementById("vykresli").click();	// init picture
-window.onload = remove_hidden() // hide range on default
+document.getElementById("info").innerHTML = "Click on the object in the right panel for drawing"
+document.getElementById("vykresli").click();	// init picture
+remove_hidden() // hide range on default
