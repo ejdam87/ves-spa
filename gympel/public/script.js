@@ -39,6 +39,8 @@ function fillCircle(e) {
 	points = [];
 	change_offset(0);
 	document.getElementById("hint").innerHTML = "<em>Currently using:</em> <b>Filled Circle</b>";
+	document.getElementById("info").innerHTML = "1. click to set a center point" + "\n" + "2. click to set an edge of circle"
+	;
 	remove_hidden()
 	TTL = 2;
 }
@@ -48,6 +50,7 @@ function circle(e) {
 	points = [];
 	change_offset(1);
 	document.getElementById("hint").innerHTML = "<em>Currently using:</em> <b>Circle</b>";
+	document.getElementById("info").innerHTML = "1. click to set a center point" + "\n" + "2. click to set an edge of circle"
 	show_hidden()
 	TTL = 2;
 }
@@ -56,6 +59,7 @@ function rectangle(e) {
 
 	change_offset(2);
 	document.getElementById("hint").innerHTML = "<em>Currently using:</em> <b>Rectangle</b>";
+	document.getElementById("info").innerHTML = "1. click to set a left upper corner" + "\n" + "2. click to set a right bottom corner"
 	show_hidden()
 	TTL = 2;
 }
@@ -64,6 +68,7 @@ function fill_rectangle(e) {
 
 	change_offset(3);
 	document.getElementById("hint").innerHTML = "<em>Currently using:</em> <b>Filled Rectangle</b>";
+	document.getElementById("info").innerHTML = "1. click to set a left upper corner" + "\n" + "2. click to set a right bottom corner"
 	remove_hidden()
 	TTL = 2;
 } 
@@ -72,6 +77,7 @@ function triangle(e) {
 
 	change_offset(4);
 	document.getElementById("hint").innerHTML = "<em>Currently using:</em> <b>Triangle</b>";
+	document.getElementById("info").innerHTML = "Click 3 times to set 3 corners"
 	show_hidden()
 	TTL = 3;
 }
@@ -80,6 +86,7 @@ function fill_triangle(e) {
 
 	change_offset(5);
 	document.getElementById("hint").innerHTML = "<em>Currently using:</em> <b>Filled triangle</b>";
+	document.getElementById("info").innerHTML = "Click 3 times to set 3 corners"
 	remove_hidden()
 	TTL = 3;
 }
@@ -88,6 +95,7 @@ function line(e) {
 
 	change_offset(6);
 	document.getElementById("hint").innerHTML = "<em>Currently using:</em> <b>Line</b>";
+	document.getElementById("info").innerHTML = "1. click to set a beggining of the line" + "\n" + "2. click to set an ending of the line"
 
 	show_hidden()
 	TTL = 2;
@@ -431,5 +439,6 @@ document.querySelector("#neg_filter").addEventListener("click", negative);
 document.querySelector("#undo").addEventListener("click", undo);
 document.querySelector("#GenerateForm").addEventListener("submit", generate_random_pic);
 
-window.onload = document.getElementById("vykresli").click();	// init picture
-window.onload = remove_hidden() // hide range on default
+document.getElementById("info").innerHTML = "Click on the object in the right panel for drawing"
+document.getElementById("vykresli").click();	// init picture
+remove_hidden() // hide range on default
