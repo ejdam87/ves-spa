@@ -16,7 +16,7 @@ body > section {
 	display: block;
 }
 header {
-	padding: 30px;
+	padding: 3vh 30px;
 	text-align: center;
 	background: #00AD9F;
 	color: white;
@@ -30,7 +30,7 @@ textarea {
 	margin: 6vw;
 	margin-top: 10vh;
 	margin-bottom: 2vh;
-	width: 23vw;
+	width: 20vw;
 	height: 60vh;
 	padding: 10px
 }
@@ -50,6 +50,7 @@ textarea {
 	transition: all 0.5s;
 	cursor: pointer;
 	width: auto;
+	filter: drop-shadow(0px 0px 2px #8a8a8a);
 }
 #vykresli:active {
 	background-color: #ff7300
@@ -145,7 +146,7 @@ i {
 	text-align: center;
 	padding-left: 5px;
 }
-#range{
+#range {
 	margin: auto;
 	margin-top: 20px;
 	margin-bottom: 15px;
@@ -154,6 +155,28 @@ i {
 	border: none;
 	justify-content: center;
 }
+/*input[type=range]{
+    -webkit-appearance: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+    width: 300px;
+    height: 5px;
+    background: rgb(255, 255, 255);
+    border: none;
+    border-radius: 3px;
+}
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #00AD9F;
+    margin-top: -4px;
+}
+input[type=range]::-webkit-slider-progress {
+	background: #00AD9F;
+}*/
 #slider {
 	text-align: center;
 	padding-right: 5px;
@@ -172,6 +195,7 @@ i {
 	margin-bottom: 15px;
 	border: 1px solid #222222;
 	float: right;
+	filter: drop-shadow(0px 0px 2px #5e5e5e);
 }
 #Nadpis {
 	padding: 0px;
@@ -208,13 +232,12 @@ i {
 	font-size: 22px;
 	padding: 15px 0px;
 	width: 80%;
+	filter: drop-shadow(0px 0px 2px #8a8a8a);
 }
 .fn_button:hover {
 	background-color:#ff7300;
 	transition: 0.5s;
 	box-shadow: 0px 0px 8px rgb(146, 146, 146);
-}
-#clear {
 }
 #fn_buttony {
 	display: flex;
@@ -230,10 +253,8 @@ i {
 	height: calc(60vh + 20px);
 	display: block;
 	margin-top: 10vh;
+	margin-bottom: 4vh;
 	background: none;
-}
-img {
-	
 }
 #output{
 	margin-bottom: 5px;
@@ -244,7 +265,62 @@ img {
 	object-fit: contain;
 	filter: url("filters.svg#inset-outline-1")
     drop-shadow(0px 0px 1px rgb(0, 0, 0));
-	border: 1px solid black;
+}
+hr {
+	color: #222222;
+	border: 2px solid #222222;
+	width: calc(57vw - 200px) - 4px;
+	margin-top: 1vh;
+}
+#UnderImageLine {
+	display: flex;
+	align-items: center;
+	margin-top: 3.5vh;
+}
+#hint {
+	font-size: 1.5vw;
+	color: #222222;
+}
+#question {
+	font-size: 1.7vw;
+	margin-left: 10px;
+	margin-top: 2px;
+	color: #00AD9F;
+	filter: drop-shadow(0px 0px 2px #8a8a8a);
+}
+#question:hover {
+	color: #ff8800;
+	transition: 0.2s;
+}
+#HintText {
+	display: flex;
+	position: absolute;
+	left: calc(32vw + 22px);
+}
+.SmallButton {
+	margin: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
+	background-color: #ff8800;
+	border: none;
+	color: white;
+	padding: 8px 8px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 1.5vw;
+	border-radius: 5px;
+	vertical-align: middle;
+	width: 3vw;
+	filter: drop-shadow(0px 0px 2px #8a8a8a);
+}
+.SmallButton:hover {
+	background-color:#ff7300;
+	transition: 0.5s;
+	box-shadow: 0px 0px 8px rgb(146, 146, 146);
+}
+#AspectRatioButtons {
+	position: absolute;
+	right: calc(100vw - (57vw - 200px) - (32vw + 22px) - 15px);
 }
 .footer {
 	padding: 50px;
@@ -314,9 +390,6 @@ h2 {
 	padding: 20px 100px;
 	width: auto;
 }
-#generate {
-	padding: 15px 30px;
-}
 .github {
 	font-family: arial;
 	color: rgb(218, 218, 218);
@@ -327,19 +400,6 @@ h2 {
 }
 .autor {
 	height: auto;
-}
-#question {
-	font-size: 26px;
-	margin-left: 10px;
-	color: #00AD9F;
-	filter: drop-shadow(0px 0px 2px #8a8a8a);
-}
-#question:hover {
-	color: #ff8800;
-	transition: 0.2s;
-}
-#UnderImageLine {
-	display: flex;
 }
 .tooltip {
 	position: relative;
