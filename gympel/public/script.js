@@ -287,7 +287,10 @@ function scroll(element){
 
 function clear() {
 	let color = document.querySelector("#colorpicker").value;
-	document.querySelector("#ves").value = "VES v1.0 600 400" + "\n" + "CLEAR " + color;
+	let text = document.querySelector("#ves").value
+	let columns = text.split('\n')
+	let background = columns[0] + "\n" + "CLEAR " + color;
+	document.querySelector("#ves").value = background 
 	document.getElementById("vykresli").click();
 
 }
@@ -428,7 +431,9 @@ function to_potrait() {
 		const height = parts[2];
 		document.querySelector("#ves").value = parts[0] + " " + parts[1] + " " + width + " " + height + "\n" + content;
 		document.getElementById("vykresli").click();
-	}		
+	}
+	document.getElementById('landscape').style.opacity = "0.5"
+	document.getElementById('portrait').style.opacity = "1"
 }
 
 function to_landscape() {
@@ -442,6 +447,8 @@ function to_landscape() {
 		document.querySelector("#ves").value = parts[0] + " " + parts[1] + " " + width + " " + height + "\n" + content;
 		document.getElementById("vykresli").click();
 	}
+	document.getElementById('landscape').style.opacity = "1"
+	document.getElementById('portrait').style.opacity = "0.5"
 }
 
 function stringify_without_first(array) {
@@ -471,4 +478,6 @@ document.querySelector("#GenerateForm").addEventListener("submit", generate_rand
 
 document.getElementById("info").innerHTML = "Click on the object in the right panel for drawing"
 document.getElementById("vykresli").click();	// init picture
-remove_hidden() // hide range on default
+remove_hidden(); // hide range on default
+console.log(document.querySelector("header").width)
+document.getElementById('portrait').style.opacity = "0.5"

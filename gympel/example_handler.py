@@ -17,6 +17,7 @@ def get_content() -> str:
     example_names.append(keys)
   example_name = choice(example_names)
   example = json_content[example_name]
+  print(example_name)
   return example
 
 
@@ -30,8 +31,8 @@ def add_example(example: str, nazov: str) -> None:
     
   with open(dirname + "\public\examples.json") as f:
     examples = json.load(f)
-    examples[nazov] = example[nazov]
-    
+  examples[nazov] = example
+
   with open(dirname + "\public\examples.json", 'w') as f:
     json.dump(examples, f)
 
@@ -59,17 +60,34 @@ def print_example_by_name(nazov):
   dirname = os.path.dirname(__file__)
   
   with open(dirname + "\public\examples.json") as f:
-    dzejson = json.load(f)
+    json_content = json.load(f)
+    return json_content[nazov]
     
-  return dzejson[nazov]
-
-
 
 if __name__ == "__main__":  #If script is executed
-  nazov = "black_hole"
-  example = {nazov:'''VES v1.0 600 400
-CLEAR #89899a
-  '''}
-
-  add_example(example, nazov)
   
+
+  while True:
+    comand = input("for add press 1 \nfor remove press 2\nfor print press 3")
+    if comand == '1':
+      name = input('name of example = ')
+      example = ''
+      
+      while True:
+        column = input('example = ')
+        print(column)
+        example += column
+        if column == "stop":
+          break
+        
+      example = example.replace('stop', '')
+
+      add_example(example, name)
+      
+    elif comand == "2":
+      name = input('name of example = ')
+      remove_example_by_name(name)
+
+    elif comand == '3':
+      name = input('name of example = ')
+      print(print_example_by_name(name))
