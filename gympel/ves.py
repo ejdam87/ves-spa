@@ -17,8 +17,8 @@ class VESreader:
     data = content.split("\n")
     header = data[0]
 
-    if len(header.split(" ")) == 4: # If header is provided
-      parts = header.split(" ")
+    if len(header.split("")) == 4: # If header is provided
+      parts = header.split("")
       self.default_width = int(parts[2])
       self.default_height = int(parts[3])
       self.height = int((self.default_height
@@ -32,7 +32,7 @@ class VESreader:
     self.create_image()
     for c in data[1:]:
       self.line_count += 1
-      line = c.split(" ")
+      line = c.split("")
       self.command_handler(line)
 
 
