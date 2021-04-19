@@ -435,3 +435,10 @@ h2 {
 	border-style: solid;
 	border-color: transparent black transparent transparent;
   }
+#info {
+	width: 800%;
+	padding: 10px;
+	max-width: 18vw;
+	font-size: 0.9vw;
+	background-color: #222222;
+}
