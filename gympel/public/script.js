@@ -39,7 +39,7 @@ function fillCircle(e) {
 	points = [];
 	change_offset(0);
 	document.getElementById("hint").innerHTML = "<em>Currently using:</em> <b>Filled Circle</b>";
-	document.getElementById("info").innerHTML = "1. click to set a center point" + "\n" + "2. click to set an edge of circle"
+	document.getElementById("info").innerHTML = "1. click to set a center point" + "<br>" + "2. click to set an edge of circle"
 	;
 	remove_hidden()
 	TTL = 2;
@@ -50,7 +50,7 @@ function circle(e) {
 	points = [];
 	change_offset(1);
 	document.getElementById("hint").innerHTML = "<em>Currently using:</em> <b>Circle</b>";
-	document.getElementById("info").innerHTML = "1. click to set a center point" + "\n" + "2. click to set an edge of circle"
+	document.getElementById("info").innerHTML = "1. click to set a center point" + "<br>" + "2. click to set an edge of circle"
 	show_hidden()
 	TTL = 2;
 }
@@ -59,7 +59,7 @@ function rectangle(e) {
 
 	change_offset(2);
 	document.getElementById("hint").innerHTML = "<em>Currently using:</em> <b>Rectangle</b>";
-	document.getElementById("info").innerHTML = "1. click to set a left upper corner" + "\n" + "2. click to set a right bottom corner"
+	document.getElementById("info").innerHTML = "1. click to set a left upper corner" + "<br>" + "2. click to set a right bottom corner"
 	show_hidden()
 	TTL = 2;
 }
@@ -68,7 +68,7 @@ function fill_rectangle(e) {
 
 	change_offset(3);
 	document.getElementById("hint").innerHTML = "<em>Currently using:</em> <b>Filled Rectangle</b>";
-	document.getElementById("info").innerHTML = "1. click to set a left upper corner" + "\n" + "2. click to set a right bottom corner"
+	document.getElementById("info").innerHTML = "1. click to set a left upper corner" + "<br>" + "2. click to set a right bottom corner"
 	remove_hidden()
 	TTL = 2;
 } 
@@ -95,7 +95,7 @@ function line(e) {
 
 	change_offset(6);
 	document.getElementById("hint").innerHTML = "<em>Currently using:</em> <b>Line</b>";
-	document.getElementById("info").innerHTML = "1. click to set a beggining of the line" + "\n" + "2. click to set an ending of the line"
+	document.getElementById("info").innerHTML = "1. click to set a beggining of the line" + "<br>" + "2. click to set an ending of the line"
 
 	show_hidden()
 	TTL = 2;
