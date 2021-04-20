@@ -6,6 +6,7 @@ class VESreader:
 
 
   def __init__(self, width, content):
+
     self.width = int(width)
     self.line_count = 0
     self.bug_report = []
@@ -13,6 +14,10 @@ class VESreader:
 
 
   def render(self, content):
+    """
+    Add commands out of "content" and draws it on
+    PIL object "picture"
+    """
 
     data = content.split("\n")
     header = data[0]
@@ -37,10 +42,16 @@ class VESreader:
 
 
   def get_bug_report(self):
+    """
+    Returns list with bug report
+    """
     return self.bug_report
 
 
   def grayscale(self):
+    """
+    Grayscale filter
+    """
 
     for x in range(self.width):
 
@@ -54,6 +65,9 @@ class VESreader:
 
 
   def negative(self):
+    """
+    Negative filter
+    """
 
     for x in range(self.width):
 

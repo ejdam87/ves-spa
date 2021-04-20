@@ -36,7 +36,7 @@ def add_example(example: str, nazov: str) -> None:
   with open(dirname + "\public\examples.json", 'w') as f:
     json.dump(examples, f)
 
-def remove_example_by_name(nazov):
+def remove_example_by_name(nazov: str) -> None:
   """
   Removes a ves script "example" with name "nazov"
   from examples.json file
@@ -51,7 +51,7 @@ def remove_example_by_name(nazov):
   with open(dirname + "\public\examples.json", 'w') as f:
     json.dump(dzejson, f)
 
-def print_example_by_name(nazov):
+def print_example_by_name(nazov: str) -> None:
   """
   Returns a ves script "example" with name "nazov"
   from examples.json file

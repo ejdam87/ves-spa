@@ -23,6 +23,7 @@ function handleSubmit(e) {
 }
 
 function change_offset(shape_index){
+	// Changes which draw-button is clicked
 
 	for (let i = 0; i < clicked.length; i++) {
 		if (i == shape_index) {
@@ -35,6 +36,7 @@ function change_offset(shape_index){
 }
 
 function fillCircle(e) {
+	// When filled-circle button is clicked
 
 	points = [];
 	change_offset(0);
@@ -46,6 +48,7 @@ function fillCircle(e) {
 }
 
 function circle(e) {
+	// When circle button is clicked
 
 	points = [];
 	change_offset(1);
@@ -56,6 +59,7 @@ function circle(e) {
 }
 
 function rectangle(e) {
+	// When rectangle button is clicked
 
 	change_offset(2);
 	document.getElementById("hint").innerHTML = "<em>Currently using:</em> <b>Rectangle</b>";
@@ -65,6 +69,7 @@ function rectangle(e) {
 }
 
 function fill_rectangle(e) {
+	// When filled-rectangle button is clicked
 
 	change_offset(3);
 	document.getElementById("hint").innerHTML = "<em>Currently using:</em> <b>Filled Rectangle</b>";
@@ -74,6 +79,7 @@ function fill_rectangle(e) {
 } 
 
 function triangle(e) {
+	// When triangle button is clicked
 
 	change_offset(4);
 	document.getElementById("hint").innerHTML = "<em>Currently using:</em> <b>Triangle</b>";
@@ -83,6 +89,7 @@ function triangle(e) {
 }
 
 function fill_triangle(e) {
+	// When filled-triangle button is clicked
 
 	change_offset(5);
 	document.getElementById("hint").innerHTML = "<em>Currently using:</em> <b>Filled triangle</b>";
@@ -92,6 +99,7 @@ function fill_triangle(e) {
 }
 
 function line(e) {
+	// When line button is clicked
 
 	change_offset(6);
 	document.getElementById("hint").innerHTML = "<em>Currently using:</em> <b>Line</b>";
@@ -103,6 +111,8 @@ function line(e) {
 
 
 function calculate_radius(points) {
+	// returns distance of points in array "points"
+
 	A = points[0];
 	B = points[1];
 
@@ -114,13 +124,15 @@ function calculate_radius(points) {
 	return Math.round(r)
 }
 
+
 function operate(e) {
+	// Deals with drawing with cursor
+
 	const default_size = get_defaults();
 	const def_width = default_size[0];
 	const def_height = default_size[1];
 	const div_width = document.querySelector("#image").offsetWidth;
 	const div_height = document.querySelector("#image").offsetHeight;
-
 
 	let im = document.querySelector("img")
 	let sizes = getImgSizeInfo(im);
@@ -285,7 +297,10 @@ function scroll(element){
 	window.scrollTo(ele.offsetLeft,ele.offsetTop); 
 }
 
+
 function clear() {
+	// When clear button is clicked
+
 	let color = document.querySelector("#colorpicker").value;
 	let text = document.querySelector("#ves").value
 	let columns = text.split('\n')
@@ -295,21 +310,28 @@ function clear() {
 
 }
 
+
 function grayscale() {
+	// When grayscale button is clicked
 	let text = document.querySelector("#ves").value;
 	const sprava = "GRAYSCALE";
 	document.querySelector("#ves").value = text  + "\n" + sprava;
 	document.getElementById("vykresli").click();
 }
 
+
 function negative() {
+	// When negative button is clicked
 	let text = document.querySelector("#ves").value;
 	const sprava = "NEGATIVE";
 	document.querySelector("#ves").value = text  + "\n" + sprava;
 	document.getElementById("vykresli").click();
 }
 
+
 function undo(){
+	// When undo button is clicked
+
 	let text = document.querySelector("#ves").value
 	let commands = text.split("\n")
 	let len = commands.length-2
@@ -341,17 +363,21 @@ function remove_hidden(){
 	document.getElementById("hidden").style.opacity = "0.6"
 }
 
+
 function show_hidden(){
 	document.getElementById("hidden").style.opacity = "1"
 }
 
 
 function download_image(linkElement){
+	// When download button is clicked
 	let source = document.getElementById("output").src;
 	linkElement.href = source
 }
 
 function generate_random_pic(e) {
+	// Request for example image to server
+
 	e.preventDefault();
 	const url = this.action;
 	const method = this.method;
@@ -368,7 +394,9 @@ function generate_random_pic(e) {
 		})
 }
 
+
 function get_defaults() {
+	// Returns default size of canvas
 	cont = document.querySelector("#ves").value.split("\n");
 	parts = cont[0].split(" ");
 	width = parts[2];
@@ -376,9 +404,11 @@ function get_defaults() {
 	return [width, height];
 }
 
+
 function convert_to_default(click_cord, default_size, real_size) {
 	return (default_size * click_cord) / real_size;
 }
+
 
 function convert_distance(distance, default_size, real_size) {
 	return (default_size * distance) / real_size;
@@ -386,6 +416,8 @@ function convert_distance(distance, default_size, real_size) {
 
 
 function getRenderedSize(contains, cWidth, cHeight, width, height, pos){
+	// get resized size
+
   var oRatio = width / height,
       cRatio = cWidth / cHeight;
   return function() {
@@ -404,6 +436,7 @@ function getRenderedSize(contains, cWidth, cHeight, width, height, pos){
 
 
 function getImgSizeInfo(img) {
+	// Returns info about resized img
   var pos = window.getComputedStyle(img).getPropertyValue('object-position').split(' ');
   return getRenderedSize(true,
                          img.width,
@@ -414,14 +447,16 @@ function getImgSizeInfo(img) {
 }
 
 
-let clicked = [0, 0, 0, 0, 0, 0, 0];	//offsets
+let clicked = [0, 0, 0, 0, 0, 0, 0];	//offsets (drawing-buttons)
 let TTL = null;	//time-to-live
 let comm = "";	//single-line
 let points = [];	//an array of point-coords
-let current_shape = null;
+let current_shape = null;	//currently using shape
 
 
 function to_potrait() {
+	// convert to portrait from landscape
+
 	const splitted = document.querySelector("#ves").value.split("\n")
 	const header = splitted[0];
 	const content = stringify_without_first(splitted);
@@ -436,7 +471,9 @@ function to_potrait() {
 	document.getElementById('portrait').style.opacity = "1"
 }
 
+
 function to_landscape() {
+	// convert to landscape from portrait
 	const splitted = document.querySelector("#ves").value.split("\n")
 	const header = splitted[0];
 	const content = stringify_without_first(splitted);
@@ -451,13 +488,16 @@ function to_landscape() {
 	document.getElementById('portrait').style.opacity = "0.5"
 }
 
+
 function stringify_without_first(array) {
+	// Returns string withou first element in array
 	let res = "";
 	for (let i = 1; i < array.length; i++) {
 		res = res + array[i] + "\n"
 	}
 	return res
 }
+
 
 document.querySelector("#VESform").addEventListener("submit", handleSubmit);
 document.querySelector("#fill_circle").addEventListener("click", fillCircle);
