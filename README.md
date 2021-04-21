@@ -43,6 +43,7 @@ Other abilites:
 - to undo latest actions
 - to generate some example picture (also with VES code)
 
-![Example_1](https://github.com/adamosoft/ves-spa/blob/master/example1.png)
 
 ![Example_2](https://github.com/adamosoft/ves-spa/blob/master/example2.png)
+
+![Example_1](https://github.com/adamosoft/ves-spa/blob/master/example1.png)
