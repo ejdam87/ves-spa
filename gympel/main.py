@@ -2,6 +2,7 @@ from io import BytesIO
 from flask import Flask, send_file, request, send_from_directory
 from ves import VESreader
 from example_handler import get_content
+import os
 app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
@@ -58,5 +59,5 @@ def render():
       print(bug)
 
   return serve_pil_image(render.picture) # return converted PIL image object to .png file
-
+  
 app.run()

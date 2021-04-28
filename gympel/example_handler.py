@@ -17,7 +17,6 @@ def get_content() -> str:
     example_names.append(keys)
   example_name = choice(example_names)
   example = json_content[example_name]
-  print(example_name)
   return example
 
 
@@ -76,7 +75,7 @@ if __name__ == "__main__":  #If script is executed
       while True:
         column = input('example = ')
         print(column)
-        example += column
+        example += column + "\n"
         if column == "stop":
           break
         

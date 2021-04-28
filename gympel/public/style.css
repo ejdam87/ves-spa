@@ -435,3 +435,7 @@ h2 {
 	border-style: solid;
 	border-color: transparent black transparent transparent;
   }
+
+#reportmistake{
+	color: red
+}

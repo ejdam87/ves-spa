@@ -15,7 +15,14 @@ function handleSubmit(e) {
 	fetch(url, {method: method, body: formular}) // Urobíme HTTP požiadavku na náš server POST /render a formularom v tele požiadavky 
 		.then((res) => res.blob()) // Dostali sme binárne dáta (blob)
 		.then((image) => {
+			console.log(image)
+			if (image.type == "image/png"){
 			document.querySelector("#output").src = URL.createObjectURL(image); // Nastavíme src našeho <img> na načítaný obrázok
+			document.querySelector('#reportmistake').innerHTML = null
+			}
+			else {
+				document.querySelector('#reportmistake').innerHTML = "There is an Error in textarea so new picture would not be uploaded"
+			}
 		})
 	/*setTimeout(function(){
 		scroll("output")
@@ -457,6 +464,10 @@ function stringify_without_first(array) {
 		res = res + array[i] + "\n"
 	}
 	return res
+}
+
+function filereader(){
+	
 }
 
 document.querySelector("#VESform").addEventListener("submit", handleSubmit);

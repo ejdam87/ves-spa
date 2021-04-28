@@ -1,6 +1,7 @@
 from PIL import Image
 from typing import Tuple, List
 import colorsys
+import os
 
 class VESreader:
 
@@ -17,8 +18,8 @@ class VESreader:
     data = content.split("\n")
     header = data[0]
 
-    if len(header.split("")) == 4: # If header is provided
-      parts = header.split("")
+    if len(header.split(" ")) == 4: # If header is provided
+      parts = header.split(' ')
       self.default_width = int(parts[2])
       self.default_height = int(parts[3])
       self.height = int((self.default_height
@@ -32,12 +33,18 @@ class VESreader:
     self.create_image()
     for c in data[1:]:
       self.line_count += 1
-      line = c.split("")
+      line = c.split(' ')
       self.command_handler(line)
 
 
   def get_bug_report(self):
-    return self.bug_report
+    listToStr = '\n'.join([str(report) for report in self.bug_report])
+    dirname = os.path.dirname(__file__)
+    with open(dirname + "\\bugreport.txt", 'w') as f:
+      f.write(listToStr)
+      
+    return listToStr
+    
 
 
   def grayscale(self):
