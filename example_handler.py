@@ -10,7 +10,7 @@ def get_content() -> str:
   """
 
   dirname = os.path.dirname(__file__)
-  with open(dirname + "\public\examples.json") as f:
+  with open(dirname + "/public/examples.json") as f:
     json_content = json.load(f)
   example_names = []
   for keys in json_content:
@@ -29,11 +29,11 @@ def add_example(example: str, nazov: str) -> None:
 
   dirname = os.path.dirname(__file__)
     
-  with open(dirname + "\public\examples.json") as f:
+  with open(dirname + "/public/examples.json") as f:
     examples = json.load(f)
   examples[nazov] = example
 
-  with open(dirname + "\public\examples.json", 'w') as f:
+  with open(dirname + "/public/examples.json", 'w') as f:
     json.dump(examples, f)
 
 def remove_example_by_name(nazov: str) -> None:
@@ -44,11 +44,11 @@ def remove_example_by_name(nazov: str) -> None:
   
   dirname = os.path.dirname(__file__)
   
-  with open(dirname + "\public\examples.json") as f:
+  with open(dirname + "/public/examples.json") as f:
     dzejson = json.load(f)
   dzejson.pop(nazov)
   
-  with open(dirname + "\public\examples.json", 'w') as f:
+  with open(dirname + "/public/examples.json", 'w') as f:
     json.dump(dzejson, f)
 
 def print_example_by_name(nazov: str) -> None:
@@ -59,7 +59,7 @@ def print_example_by_name(nazov: str) -> None:
   
   dirname = os.path.dirname(__file__)
   
-  with open(dirname + "\public\examples.json") as f:
+  with open(dirname + "/public/examples.json") as f:
     json_content = json.load(f)
     return json_content[nazov]
     
